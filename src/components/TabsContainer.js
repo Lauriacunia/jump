@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
@@ -33,11 +34,18 @@ const TabsContainer = () => {
         textColor="secondary"
         aria-label="icon label tabs example"
       >
-        <Tab icon={<PersonPinIcon />} label="LANZAMIENTOS" />
-        <Tab icon={<PersonPinIcon />} label="POPULARES" />
-        <Tab icon={<PhoneIcon />} label="PELICULAS" />
-        <Tab icon={<FavoriteIcon />} label="SERIES" />
-        
+        <Link to="/lanzamientos">
+          <Tab icon={<PersonPinIcon />} label="LANZAMIENTOS"></Tab>
+        </Link>
+        <Link to="/populares">
+          <Tab icon={<PersonPinIcon />} label="POPULARES" ></Tab>
+        </Link>
+        <Link to="/peliculas">
+          <Tab icon={<PhoneIcon />} label="PELICULAS" ></Tab>
+        </Link>
+        <Link to="/series">
+          <Tab icon={<FavoriteIcon />} label="SERIES" ></Tab>
+        </Link>
       </Tabs>
     </Paper>
   );
