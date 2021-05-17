@@ -1,26 +1,12 @@
-import {
-  BrowserRouter, 
-  Route, 
-  Link, 
-  Switch, 
-  } 
-  from 'react-router-dom'
+import Navbar from "./components/Navbar";
+import Main from "./components/Main";
 import './App.css';
 
 const App = () => {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Link to="/blog">Blog</Link>
-      
-        <Switch>
-          <Route exact path="/blog" component={Blog}/>
-        </Switch>
-      
-      </BrowserRouter>
-
-      
-      
+      <Navbar></Navbar>
+      <Main></Main>
     </div>
   );
 }
