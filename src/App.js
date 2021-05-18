@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 
 
 const App = () => {
-  const [resultado, setResultados] = useState([]);
+  const [resultados, setResultados] = useState([]);
   const [valorDelInput, setValorDelInput] = useState('');
   const [busqueda, setBusqueda] = useState('');
 
@@ -67,6 +67,7 @@ const App = () => {
         <Navbar valorDelInput={valorDelInput}
           handleChange={handleChange}
           handleSubmit={handleSubmit} /> 
+
         <Switch>
           <Route exact path="/home" component={Home}/>
           <Route exact path="/lanzamientos" component={Lanzamientos}/>
