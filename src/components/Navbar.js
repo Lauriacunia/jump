@@ -4,12 +4,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Search from "./Search";
-import TabsContainer from "./TabsContainer"
+import LinkIco from "./LinkIco";
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber';
+import ContactsIcon from '@material-ui/icons/Contacts';
+import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,12 +41,24 @@ const Navbar = () => {
                       <MenuIcon />
                     </IconButton>
                 </Hidden>
+
                 <Link to="/home">
                   <Button>JUMP</Button>  
                 </Link>
-                  
+               
                 <Hidden xsDown>
-                    <TabsContainer></TabsContainer>
+                    <LinkIco title = {"Lanzamientos"}
+                             ico = {<ConfirmationNumberIcon/>} 
+                             path= {"/lanzamientos"}/>
+                    <LinkIco title = {"Populares"} 
+                             ico = {<FavoriteIcon />} 
+                             path= {"/populares"}/>
+                    <LinkIco title = {"Peliculas"} 
+                             ico = {<ContactsIcon />} 
+                             path= {"/peliculas"}/>
+                    <LinkIco title = {"Series"} 
+                             ico = {<EmojiFoodBeverageIcon />} 
+                             path= {"/series"}/>
                 </Hidden>
                 
                 <Search></Search>
