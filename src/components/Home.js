@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
+import Carousel from "./Carousel";
 
 const useStyles = makeStyles({
   root: {
@@ -17,6 +18,7 @@ const Home = () => {
   return (
     <div className= {classes.root}>
       <p>soy home</p>
+      <Carousel />
     </div>
   );
 }
