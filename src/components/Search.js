@@ -44,22 +44,26 @@ search: {
   },
 }));
 
-const Search = () => {
+const Search = ({handleSubmit, handleChange, valorDelInput}) => {
     const classes = useStyles();
 
     return (
             <div className={classes.search}>
-                <div className={classes.searchIcon}>
-                <SearchIcon />
-                </div>
-                <InputBase
-                placeholder="Search…"
-                classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                }}
-                inputProps={{ 'aria-label': 'search' }}
-                />
+               <form onSubmit={handleSubmit}>
+                  <div className={classes.searchIcon}>
+                  <SearchIcon />
+                  </div>
+                  <InputBase
+                  value={valorDelInput}
+                  onChange={handleChange}
+                  placeholder="¿Qué querés ver hoy?…"
+                  classes={{
+                      root: classes.inputRoot,
+                      input: classes.inputInput,
+                  }}
+                  inputProps={{ 'aria-label': 'search' }}
+                  />
+                </form>
             </div>
          
  )
