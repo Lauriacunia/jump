@@ -1,34 +1,59 @@
 
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css"
 import "swiper/components/navigation/navigation.min.css"
-
 import "./Slider.css";
-
-
-// import Swiper core and required modules
 import SwiperCore, {
-  Pagination,Navigation
+  Pagination, Navigation
 } from 'swiper/core';
+import CardSm from "./CardSm";
 
-// install Swiper modules
-SwiperCore.use([Pagination,Navigation]);
+
+SwiperCore.use([Pagination, Navigation]);
 
 
 const Slider = () => {
   
+  const [resultados, setResultados] = useState([]);
+
+  useEffect(() => {
+      const BASE_URL = `https://api.themoviedb.org/3/tv/on_the_air?api_key=c30046e601e1f588297bc67b7f52c812&language=en-US&page=1`
+      const searchString = BASE_URL
+
+      fetch(searchString)
+          .then(res => res.json())
+          .then(data => {
+              console.log(data.results)
+              setResultados(data.results)
+          })
+  }, []);
+
   return (
     <>
-    <Swiper slidesPerView={3} spaceBetween={30} slidesPerGroup={3} loop={true} loopFillGroupWithBlank={true} pagination={{
-  "clickable": true
-    }} navigation={true} className="mySwiper">
-    <SwiperSlide>Slide 1</SwiperSlide><SwiperSlide>Slide 2</SwiperSlide><SwiperSlide>Slide 3</SwiperSlide><SwiperSlide>Slide 4</SwiperSlide><SwiperSlide>Slide 5</SwiperSlide><SwiperSlide>Slide 6</SwiperSlide><SwiperSlide>Slide 7</SwiperSlide><SwiperSlide>Slide 8</SwiperSlide><SwiperSlide>Slide 9</SwiperSlide>
-    </Swiper>
+      <Swiper slidesPerView={3} 
+              spaceBetween={10} 
+              slidesPerGroup={3} 
+              loop={true} 
+              loopFillGroupWithBlank={true} 
+              navigation={true} 
+              className="mySwiper">
+          <SwiperSlide>
+                {
+                    resultados.map((resultado) => {
+                        return (
+                            <SwiperSlide>
+                                <CardSm
+                                    resultado={resultado}
+                                    />
+                            </SwiperSlide>
+                        )
+                    })
+                }
+          </SwiperSlide>
+          
+      </Swiper>
     </>
   )
 }

@@ -5,14 +5,14 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     root: {
-        width: 270,
+        width: 230,
         margin: "15",
     },
-    media: {
-        
-        height: 400,
-        backgroundSize: "cover"
-
+    media: {       
+        display: "block",
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
     },
     pos: {
         marginBottom: 12,
@@ -27,12 +27,12 @@ const useStyles = makeStyles({
 
 });
 
-const CardBasic = ({ resultado}) => {
+const CardSm = ({ resultado}) => {
     console.log(resultado)
     const classes = useStyles();
 
     const recortarTitulo = (str) => {
-        let strCorto = `${str.slice(0, 50)}...`
+        let strCorto = `${str.slice(0, 28)}...`
         return strCorto;
     };
 
@@ -66,4 +66,4 @@ const CardBasic = ({ resultado}) => {
     )
 };
 
-export default CardBasic;
+export default CardSm;

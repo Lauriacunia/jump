@@ -49,7 +49,9 @@ const Carousel = () => {
                     resultados.map((resultado) => {
                         return (
                             <SwiperSlide>
-                                <CardBasic resultado={resultado} />
+                                <CardBasic 
+                                    resultado={resultado}
+                                     />
                             </SwiperSlide>
                         )
                     })
