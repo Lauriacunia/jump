@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Navbar = () => {
+const Navbar = ({handleSubmit, handleChange, valorDelInput}) => {
     const classes = useStyles();
 
     return (
@@ -61,7 +61,9 @@ const Navbar = () => {
                              path= {"/series"}/>
                 </Hidden>
                 
-                <Search></Search>
+                <Search valorDelInput={valorDelInput}
+                        handleChange={handleChange}
+                        handleSubmit={handleSubmit} />
 
                 <Button color="inherit">Login</Button>
             </Toolbar>

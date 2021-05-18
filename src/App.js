@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import './App.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
     BrowserRouter, 
@@ -26,13 +26,47 @@ const useStyles = makeStyles({
 
 
 
+
+
+
 const App = () => {
+  const [resultado, setResultados] = useState([]);
+  const [valorDelInput, setValorDelInput] = useState('');
+  const [busqueda, setBusqueda] = useState('');
+
+  const handleChange = e => {
+    console.log("Cambio el input")
+    setValorDelInput(e.target.value);
+    console.log(valorDelInput)
+  };
+
+  const handleSubmit = e => {
+    console.log("Enviaste el formulario")
+    e.preventDefault();
+    setBusqueda(valorDelInput);
+  };
+
+
+  useEffect(() => {
+    const BASE_URL = `https://api.themoviedb.org/3/tv/on_the_air?api_key=c30046e601e1f588297bc67b7f52c812&language=en-US&page=1`
+    const searchString = BASE_URL 
+  
+    fetch(searchString)
+      .then(res => res.json())
+      .then(data => {
+          console.log(data.results)
+          setResultados(data.results)
+      })
+  }, []);
+
+
   return (
     <ThemeProvider theme = {theme}>
       <BrowserRouter>
 
-        <Navbar></Navbar>
-       
+        <Navbar valorDelInput={valorDelInput}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit} /> 
         <Switch>
           <Route exact path="/home" component={Home}/>
           <Route exact path="/lanzamientos" component={Lanzamientos}/>
