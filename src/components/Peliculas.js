@@ -1,6 +1,20 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import lightBlue from '@material-ui/core/colors/lightBlue';
+
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: lightBlue[300],
+    width:"100%",
+  },
+});
+
 const Peliculas = () => {
+  const classes = useStyles();
     return (
-      <p>soy peliculas</p>
+      <div className= {classes.root}>
+        <p>soy peliculas</p>
+      </div>
     );
   }
   

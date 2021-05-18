@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import './App.css';
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import {
     BrowserRouter, 
     Route, 
@@ -9,15 +10,25 @@ import {
     Switch, 
     } 
     from 'react-router-dom'
+import { ThemeProvider } from '@material-ui/core/styles';
 import Lanzamientos from "./components/Lanzamientos"
 import Populares from "./components/Populares"
 import Peliculas from "./components/Peliculas"
 import Series from "./components/Series"
 import CardDetail from "./components/CardDetail"
+import theme from "./ThemeConfig"
+
+
+
+const useStyles = makeStyles({
+   
+});
+
+
 
 const App = () => {
   return (
-    <div className="App">
+    <ThemeProvider theme = {theme}>
       <BrowserRouter>
 
         <Navbar></Navbar>
@@ -38,7 +49,7 @@ const App = () => {
       
       </BrowserRouter>
       
-    </div>
+    </ThemeProvider>
   );
 }
 

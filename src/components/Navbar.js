@@ -1,5 +1,7 @@
 import React from 'react';
+import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -31,17 +33,22 @@ const Navbar = () => {
 
         <AppBar position="static">
             <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-                    JUMP
-            </Typography>
-            <TabsContainer></TabsContainer>
+                <Hidden smUp>
+                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                      <MenuIcon />
+                    </IconButton>
+                </Hidden>
+                <Link to="/home">
+                  <Button>JUMP</Button>  
+                </Link>
+                  
+                <Hidden xsDown>
+                    <TabsContainer></TabsContainer>
+                </Hidden>
+                
+                <Search></Search>
 
-            <Search></Search>
-
-            <Button color="inherit">Login</Button>
+                <Button color="inherit">Login</Button>
             </Toolbar>
         </AppBar>
 
