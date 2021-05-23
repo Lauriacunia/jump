@@ -10,13 +10,13 @@ import {
     Switch, 
     } 
     from 'react-router-dom'
-import { ThemeProvider } from '@material-ui/core/styles';
+
 import Lanzamientos from "./components/Lanzamientos"
 import Populares from "./components/Populares"
 import Peliculas from "./components/Peliculas"
 import Series from "./components/Series"
 import CardDetail from "./components/CardDetail"
-import theme from "./ThemeConfig"
+
 
 
 
@@ -61,7 +61,7 @@ const App = () => {
 
 
   return (
-    <ThemeProvider theme = {theme}>
+   
       <BrowserRouter>
 
         <Navbar valorDelInput={valorDelInput}
@@ -78,13 +78,10 @@ const App = () => {
           <Route exact path="/series/:detalle" component={CardDetail}/>
      
          {/*<Route component={Page404}/>*/}
-       </Switch>
-      
-      
+       </Switch>    
       
       </BrowserRouter>
       
-    </ThemeProvider>
   );
 }
 
