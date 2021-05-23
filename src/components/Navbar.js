@@ -24,6 +24,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:"transparent",
     
   },
+  logo:{
+      '&$hover': {
+      transform: `scale(0.7)`}
+  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -50,7 +54,8 @@ const Navbar = ({handleSubmit, handleChange, valorDelInput}) => {
                     </IconButton>
                 </Hidden>
 
-                <img src = "https://user-images.githubusercontent.com/63796774/119274985-f0b2f980-bbe8-11eb-9d6a-5723d70ae69f.png"
+                <img className={classes.logo} 
+                     src = "https://user-images.githubusercontent.com/63796774/119274985-f0b2f980-bbe8-11eb-9d6a-5723d70ae69f.png"
                      onClick = {()=> { history.push("/home")}}></img>  
 
                 <TabsContainer />
