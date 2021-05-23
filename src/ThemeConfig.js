@@ -1,13 +1,10 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import lime from '@material-ui/core/colors/lime';
-import pink from '@material-ui/core/colors/pink';
-import lightBlue from '@material-ui/core/colors/lightBlue';
-
-
 
 
 const theme = createMuiTheme({
+
     palette: {
         primary: {
           main: purple[600],
@@ -15,14 +12,31 @@ const theme = createMuiTheme({
         secondary: {
           main: lime[300],
         },
-        danger: {
-            main: pink[300],
-          },
-        sucess:{
-            main: lightBlue[300],
-          },
       },
 
-})
+      typography: {
+        h1: {
+          fontFamily: [
+            '"Ubuntu"',
+            'sans-serif',  
+          ].join(','),
+          fontWeight: 500,
+        },
+        h2: {
+          fontFamily: [
+            '"Ubuntu"',
+            'sans-serif',  
+          ].join(','),
+          fontWeight: 500,
+        },
+        h3: {
+          fontFamily: [
+            '"Ubuntu"',
+            'sans-serif',  
+          ].join(','),
+          fontWeight: 500,
+        },
+      }
+});
 
 export default theme

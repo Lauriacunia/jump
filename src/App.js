@@ -10,13 +10,13 @@ import {
     Switch, 
     } 
     from 'react-router-dom'
-import { ThemeProvider } from '@material-ui/core/styles';
+
 import Lanzamientos from "./components/Lanzamientos"
 import Populares from "./components/Populares"
 import Peliculas from "./components/Peliculas"
 import Series from "./components/Series"
 import CardDetail from "./components/CardDetail"
-import theme from "./ThemeConfig"
+
 
 
 
@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 
 
 const App = () => {
-  const [resultado, setResultados] = useState([]);
+  const [resultados, setResultados] = useState([]);
   const [valorDelInput, setValorDelInput] = useState('');
   const [busqueda, setBusqueda] = useState('');
 
@@ -61,12 +61,13 @@ const App = () => {
 
 
   return (
-    <ThemeProvider theme = {theme}>
+   
       <BrowserRouter>
 
         <Navbar valorDelInput={valorDelInput}
           handleChange={handleChange}
           handleSubmit={handleSubmit} /> 
+
         <Switch>
           <Route exact path="/home" component={Home}/>
           <Route exact path="/lanzamientos" component={Lanzamientos}/>
@@ -77,13 +78,10 @@ const App = () => {
           <Route exact path="/series/:detalle" component={CardDetail}/>
      
          {/*<Route component={Page404}/>*/}
-       </Switch>
-      
-      
+       </Switch>    
       
       </BrowserRouter>
       
-    </ThemeProvider>
   );
 }
 

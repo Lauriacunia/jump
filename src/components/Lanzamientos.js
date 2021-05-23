@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import lime from '@material-ui/core/colors/lime';
+import Slider from "./Slider";
 
 const useStyles = makeStyles({
   root: {
@@ -16,6 +17,7 @@ const Lanzamientos = () => {
     return (
       <div className= {classes.root}>
         <p>soy lanzamientos</p>
+        <Slider/>
       </div>
     );
   }
