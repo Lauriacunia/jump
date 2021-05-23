@@ -1,7 +1,7 @@
 import React from 'react';
+import { useHistory, useParams, useLocation, Link } from 'react-router-dom'
 import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -13,10 +13,20 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber';
 import ContactsIcon from '@material-ui/icons/Contacts';
 import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage';
+import TabsContainer from "./TabsContainer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+   
+  },
+  navbar: {
+    backgroundColor:"transparent",
+    
+  },
+  logo:{
+      '&$hover': {
+      transform: `scale(0.7)`}
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -29,12 +39,14 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = ({handleSubmit, handleChange, valorDelInput}) => {
     const classes = useStyles();
+    const history = useHistory();
+
 
     return (
  
         <div className={classes.root}>
 
-        <AppBar position="static">
+        <AppBar className={classes.navbar} position="sticky">
             <Toolbar>
                 <Hidden smUp>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -42,30 +54,16 @@ const Navbar = ({handleSubmit, handleChange, valorDelInput}) => {
                     </IconButton>
                 </Hidden>
 
-                <Link to="/home">
-                  <Button>JUMP</Button>  
-                </Link>
-               
-                <Hidden xsDown>
-                    <LinkIco title = {"Lanzamientos"}
-                             ico = {<ConfirmationNumberIcon/>} 
-                             path= {"/lanzamientos"}/>
-                    <LinkIco title = {"Populares"} 
-                             ico = {<FavoriteIcon />} 
-                             path= {"/populares"}/>
-                    <LinkIco title = {"Peliculas"} 
-                             ico = {<ContactsIcon />} 
-                             path= {"/peliculas"}/>
-                    <LinkIco title = {"Series"} 
-                             ico = {<EmojiFoodBeverageIcon />} 
-                             path= {"/series"}/>
-                </Hidden>
+                <img className={classes.logo} 
+                     src = "https://user-images.githubusercontent.com/63796774/119274985-f0b2f980-bbe8-11eb-9d6a-5723d70ae69f.png"
+                     onClick = {()=> { history.push("/home")}}></img>  
+
+                <TabsContainer />
                 
                 <Search valorDelInput={valorDelInput}
                         handleChange={handleChange}
                         handleSubmit={handleSubmit} />
 
-                <Button color="inherit">Login</Button>
             </Toolbar>
         </AppBar>
 

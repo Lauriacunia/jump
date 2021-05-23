@@ -7,7 +7,8 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: purple[600],
+    backgroundColor: "transparent",
+    color: "#fafafa",
     width:"100%",
   },
    
