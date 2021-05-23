@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { useHistory, useParams, useLocation, Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -23,17 +23,16 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-const LinkIco = ({path, title, ico}) =>{
+const LinkIco = ({title, ico}) =>{
     const classes = useStyles();
+    const history = useHistory();
 
     return (
-        <div>
-            <Link to={path}>
+        <div onClick = {()=> { history.push(`/${title}`)}} >       
                {ico}
               <Typography variant="h6">
                {title}
-              </Typography>  
-            </Link>           
+              </Typography>               
         </div>
 
     )
