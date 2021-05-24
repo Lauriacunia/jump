@@ -21,14 +21,11 @@ import CardDetail from "./components/CardDetail"
 
 
 const useStyles = makeStyles({
+
    mainContainer: {
     backgroundImage: `url(${"https://user-images.githubusercontent.com/63796774/119273651-3d470680-bbe2-11eb-9a9e-e571fcc86d18.png"})`
    }
 });
-
-
-
-
 
 
 const App = () => {

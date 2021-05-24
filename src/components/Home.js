@@ -1,11 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import SliderMultiple from "./SliderMultiple";
 import { Container } from '@material-ui/core';
 import Slider from "./Slider";
-
 
 const useStyles = makeStyles({
   root: {
@@ -24,7 +21,8 @@ const useStyles = makeStyles({
 
 const Home = () => {
   const classes = useStyles();
- 
+  const APIKEY = `c30046e601e1f588297bc67b7f52c812`;
+
   return (
     <div className= {classes.root}>
 
@@ -35,13 +33,13 @@ const Home = () => {
         <Typography variant="h6" gutterBottom>
           Peliculas Populares
         </Typography>
-        <Slider ruta ={`movie/popular?api_key=c30046e601e1f588297bc67b7f52c812&language=en-US&page=1`}/>  
+        <Slider ruta ={`movie/popular?language=en-US&page=1&api_key=${APIKEY}`}/>  
       </Container>
       <Container className= {classes.sliderContainer}>
         <Typography variant="h6" gutterBottom>
           Peliculas Mejor Rankeadas
         </Typography>
-        <Slider ruta ={`movie/top_rated?api_key=c30046e601e1f588297bc67b7f52c812&language=en-US&page=1`}/>  
+        <Slider ruta ={`movie/top_rated?language=en-US&page=1&api_key=${APIKEY}`}/>  
       </Container>
 
     </div>
