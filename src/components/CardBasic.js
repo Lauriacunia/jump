@@ -5,14 +5,14 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     root: {
-        width: 270,
+        width: 180,
         margin: "15",
     },
-    media: {
-        
-        height: 400,
-        backgroundSize: "cover"
-
+    media: {       
+        display: "block",
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
     },
     pos: {
         marginBottom: 12,
@@ -55,10 +55,7 @@ const CardBasic = ({ resultado}) => {
             
             <div className={classes.details}>
                 <Typography gutterBottom variant="body1" color="textSecondary">
-                    {resultado.original_name < 28
-                        ? resultado.original_name
-                        : recortarTitulo(resultado.original_name)
-                    }
+                         {resultado.title}
                 </Typography>
             </div>
         </div>

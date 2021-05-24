@@ -4,15 +4,9 @@ import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Search from "./Search";
-import LinkIco from "./LinkIco";
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber';
-import ContactsIcon from '@material-ui/icons/Contacts';
-import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage';
 import TabsContainer from "./TabsContainer";
 
 const useStyles = makeStyles((theme) => ({

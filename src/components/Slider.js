@@ -1,26 +1,30 @@
 
 import React, { useRef, useState, useEffect } from "react";
+import { makeStyles } from '@material-ui/core/styles';
+import CardBasic from "./CardBasic";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css"
 import "swiper/components/navigation/navigation.min.css"
-import "./Slider.css";
 import SwiperCore, {
-  Pagination, Navigation
+  Pagination,Navigation
 } from 'swiper/core';
-import CardSm from "./CardSm";
 
+SwiperCore.use([Pagination,Navigation]);
 
-SwiperCore.use([Pagination, Navigation]);
+const useStyles = makeStyles({
 
-
-const Slider = () => {
   
+});
+
+const Slider = ({ruta}) => {
+  console.log(ruta)
+  const classes = useStyles();
   const [resultados, setResultados] = useState([]);
 
   useEffect(() => {
-      const BASE_URL = `https://api.themoviedb.org/3/tv/on_the_air?api_key=c30046e601e1f588297bc67b7f52c812&language=en-US&page=1`
-      const searchString = BASE_URL
+      const BASE_URL = `https://api.themoviedb.org/3/`
+      const searchString = `${BASE_URL}${ruta}`
 
       fetch(searchString)
           .then(res => res.json())
@@ -32,27 +36,25 @@ const Slider = () => {
 
   return (
     <>
+       
       <Swiper slidesPerView={3} 
               spaceBetween={10} 
-              slidesPerGroup={3} 
+              slidesPerGroup={5} 
               loop={true} 
               loopFillGroupWithBlank={true} 
               navigation={true} 
               className="mySwiper">
-          <SwiperSlide>
-                {
-                    resultados.map((resultado) => {
-                        return (
-                            <SwiperSlide>
-                                <CardSm
-                                    resultado={resultado}
-                                    />
-                            </SwiperSlide>
-                        )
-                    })
-                }
-          </SwiperSlide>
-          
+          {
+            resultados.map((resultado) => {
+                return (
+                    <SwiperSlide >
+                        <CardBasic
+                            resultado={resultado}
+                            />
+                    </SwiperSlide>
+                )
+            })
+        }       
       </Swiper>
     </>
   )

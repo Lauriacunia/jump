@@ -29,12 +29,12 @@ const theme = createMuiTheme({
           ].join(','),
           fontWeight: 500,
         },
-        h3: {
+        h6: {
           fontFamily: [
             '"Ubuntu"',
             'sans-serif',  
           ].join(','),
-          fontWeight: 500,
+          fontWeight: 300,
         },
       }
 });
