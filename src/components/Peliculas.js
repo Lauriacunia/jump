@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Slider from "./Slider";
 import Typography from '@material-ui/core/Typography';
 import { Container } from '@material-ui/core';
-
+import TituloSlider from "./TituloSlider";
 
 const useStyles = makeStyles({
   root: {
@@ -19,34 +19,28 @@ const Peliculas = () => {
 
     return (
       <div className= {classes.root}>
+
         <Container className= {classes.sliderContainer}>
-            <Typography variant="h6" gutterBottom>
-              Películas con son tendencia
-            </Typography>
+            <TituloSlider title={"Películas que son tendencia"} /> 
             <Slider ruta={`trending/movie/week?language=en-US&page=1&api_key=${APIKEY}`}/>
         </Container>
+
         <Container className= {classes.sliderContainer}>
-            <Typography variant="h6" gutterBottom>
-              Películas con mejores críticas
-            </Typography>
+            <TituloSlider title={"Películas con mejores críticas"} /> 
             <Slider ruta={`movie/top_rated?language=en-US&page=1&api_key=${APIKEY}`}/>
         </Container>
+
          <Container className= {classes.sliderContainer}>
-            <Typography variant="h6" gutterBottom>
-              Películas populares
-            </Typography>
+            <TituloSlider title={"Películas populares"} /> 
             <Slider ruta={`movie/popular?language=en-US&page=1&api_key=${APIKEY}`}/>
         </Container>
+
         <Container className= {classes.sliderContainer}>
-            <Typography variant="h6" gutterBottom>
-              Películas ahora en cine
-            </Typography>
+            <TituloSlider title={" Películas ahora en cine"} /> 
             <Slider ruta={`movie/now_playing?language=en-US&page=1&api_key=${APIKEY}`}/>
         </Container>
         <Container className= {classes.sliderContainer}>
-            <Typography variant="h6" gutterBottom>
-              Películas a estrenarse
-            </Typography>
+            <TituloSlider title={"Películas a estrenarse"} /> 
             <Slider ruta={`movie/upcoming?language=en-US&page=1&api_key=${APIKEY}`}/>
         </Container>
       </div>

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Slider from "./Slider";
 import Typography from '@material-ui/core/Typography';
 import { Container } from '@material-ui/core';
-
+import TituloSlider from "./TituloSlider";
 
 const useStyles = makeStyles({
   root: {
@@ -21,27 +21,19 @@ const Series = () => {
     return (
       <div className= {classes.root}> 
        <Container className= {classes.sliderContainer}>
-            <Typography variant="h6" gutterBottom>
-              Series que son Tendencia
-            </Typography>
+            <TituloSlider title={"Series que son Tendencia"} /> 
             <Slider ruta={`trending/tv/week?language=en-US&page=1&api_key=${APIKEY}`}/>
         </Container>
         <Container className= {classes.sliderContainer}>
-            <Typography variant="h6" gutterBottom>
-              Series populares
-            </Typography>
+            <TituloSlider title={"Series populares"} /> 
             <Slider ruta={`tv/popular?language=en-US&page=1&api_key=${APIKEY}`}/>
         </Container>
         <Container className= {classes.sliderContainer}>
-            <Typography variant="h6" gutterBottom>
-              Series con mejores críticas
-            </Typography>
+            <TituloSlider title={"Series con mejores críticas"} /> 
             <Slider ruta={`tv/top_rated?language=en-US&page=1&api_key=${APIKEY}`}/>
         </Container>
          <Container className= {classes.sliderContainer}>
-            <Typography variant="h6" gutterBottom>
-              Series en el aire
-            </Typography>
+            <TituloSlider title={"Series en el aire"} /> 
             <Slider ruta={`tv/on_the_air?language=en-US&page=1&api_key=${APIKEY}`}/>
         </Container>
         

@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Container } from '@material-ui/core';
 import Slider from "./Slider";
+import TituloSlider from "./TituloSlider";
 
 const useStyles = makeStyles({
   root: {
@@ -20,15 +21,11 @@ const Populares = () => {
     return (
       <div className= {classes.root}>
         <Container className= {classes.sliderContainer}>
-            <Typography variant="h6" gutterBottom>
-              Películas populares
-            </Typography>
+            <TituloSlider title={"Películas populares"} /> 
             <Slider ruta={`movie/popular?language=en-US&page=1&api_key=${APIKEY}`}/>
         </Container>
          <Container className= {classes.sliderContainer}>
-            <Typography variant="h6" gutterBottom>
-              Series populares
-            </Typography>
+            <TituloSlider title={"Series populares"} /> 
             <Slider ruta={`tv/popular?language=en-US&page=1&api_key=${APIKEY}`}/>
         </Container>
       </div>

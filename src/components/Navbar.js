@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     
   },
   logo:{
+      cursor: "pointer",
       '&$hover': {
       transform: `scale(0.7)`}
   },
