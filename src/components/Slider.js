@@ -1,7 +1,7 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import CardBasic from "./CardBasic";
+import CardSimple from "./CardSimple";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css"
@@ -38,7 +38,7 @@ const Slider = ({ruta}) => {
     <>
        
       <Swiper slidesPerView={3} 
-              spaceBetween={10} 
+              spaceBetween={1} 
               slidesPerGroup={5} 
               loop={true} 
               loopFillGroupWithBlank={true} 
@@ -48,7 +48,7 @@ const Slider = ({ruta}) => {
             resultados.map((resultado) => {
                 return (
                     <SwiperSlide >
-                        <CardBasic
+                        <CardSimple
                             resultado={resultado}
                             />
                     </SwiperSlide>

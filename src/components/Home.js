@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import { Container } from '@material-ui/core';
 import Slider from "./Slider";
 import TituloSlider from "./TituloSlider";
+import CardSimple from "./CardSimple";
 
 const useStyles = makeStyles({
   root: {
@@ -40,7 +41,7 @@ const Home = () => {
 
   return (
     <div className= {classes.root}>
-
+      
       <div className= {classes.parallaxContainer}>
      
       </div>
