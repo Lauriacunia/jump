@@ -25,15 +25,11 @@ const CardSimple = ({ resultado }) => {
     return strCorto;
   };
 
-    const handleClick = (e) => {
-        console.log("hola")
-        console.log(e.target)
-    }
+
 
   return (
     <Card className={classes.root}
-          key={resultado.id}
-          onClick={handleClick} >
+          >
       <CardActionArea>
         <CardMedia
             className={classes.media}

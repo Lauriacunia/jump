@@ -17,6 +17,11 @@ const useStyles = makeStyles({
   
 });
 
+const handleClick = (e) => {
+  console.log("hola")
+  console.log(e.target.id)
+}
+
 const Slider = ({ruta}) => {
   console.log(ruta)
   const classes = useStyles();
@@ -47,7 +52,9 @@ const Slider = ({ruta}) => {
           {
             resultados.map((resultado) => {
                 return (
-                    <SwiperSlide >
+                    <SwiperSlide key={resultado.id}
+                                 id={resultado.id}
+                                 onClick={handleClick}>
                         <CardSimple
                             resultado={resultado}
                             />
