@@ -1,11 +1,10 @@
 import React from 'react';
 import { useHistory, useParams, useLocation, Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import { Container } from '@material-ui/core';
 import Slider from "./Slider";
 import TituloSlider from "./TituloSlider";
-import CardSimple from "./CardSimple";
+import SliderParallax from "./SliderParallax";
 
 const useStyles = makeStyles({
   root: {
@@ -41,10 +40,9 @@ const Home = () => {
 
   return (
     <div className= {classes.root}>
-      
-      <div className= {classes.parallaxContainer}>
-     
-      </div>
+      <Container className= {classes.sliderContainer}>
+        <SliderParallax ruta ={`movie/popular?language=en-US&page=1&api_key=${APIKEY}`}/>
+      </Container>
       
       <Container className= {classes.sliderContainer}>
         <TituloSlider title={"Peliculas populares"} />       
