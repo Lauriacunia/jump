@@ -1,6 +1,5 @@
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import './App.css';
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -21,14 +20,16 @@ import CardDetail from "./components/CardDetail"
 
 
 const useStyles = makeStyles({
+  "@global": {
+    body: {
+      margin: 0,
+      padding: 0,
+      }
+    },
    mainContainer: {
     backgroundImage: `url(${"https://user-images.githubusercontent.com/63796774/119273651-3d470680-bbe2-11eb-9a9e-e571fcc86d18.png"})`
    }
 });
-
-
-
-
 
 
 const App = () => {

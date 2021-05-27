@@ -4,7 +4,7 @@ import lime from '@material-ui/core/colors/lime';
 
 
 const theme = createMuiTheme({
-
+  
     palette: {
         primary: {
           main: purple[600],
@@ -29,12 +29,12 @@ const theme = createMuiTheme({
           ].join(','),
           fontWeight: 500,
         },
-        h3: {
+        h6: {
           fontFamily: [
             '"Ubuntu"',
             'sans-serif',  
           ].join(','),
-          fontWeight: 500,
+          fontWeight: 300,
         },
       }
 });

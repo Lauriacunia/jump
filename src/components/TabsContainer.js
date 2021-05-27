@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Imagen from "./Imagen";
 import PhoneIcon from '@material-ui/icons/Phone';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
@@ -62,6 +63,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "transparent",
     paddingBottom: 15,
     color: "#fafafa",
+  },
+  tab: {
+      '&:hover': {
+        transform: `scale(1.1)`}
   }
 }));
 
@@ -86,21 +91,34 @@ const TabsContainer = () => {
           textColor="white"
           aria-label="scrollable force tabs example"
         >
-          <Tab onClick={() => { history.push(`/lanzamientos`) }}
-            label="lanzamientos"
-            icon={<InsertEmoticonOutlinedIcon />}
+          <Tab className={classes.tab} 
+               onClick={() => { history.push(`/lanzamientos`) }}
+               label="lanzamientos"
+               icon={<Imagen ruta={"https://user-images.githubusercontent.com/63796774/119745476-945c0e00-be64-11eb-8903-0bf5ba683595.png"}
+                          ancho={"50"} 
+                          alto={"50"}
+                           />}
             {...a11yProps(0)} />
-          <Tab onClick={() => { history.push(`/populares`) }}
-            label="populares"
-            icon={<FavoriteIcon />}
+          <Tab className={classes.tab}  
+               onClick={() => { history.push(`/populares`) }}
+               label="populares"
+               icon={<Imagen ruta={"https://user-images.githubusercontent.com/63796774/119745162-f36d5300-be63-11eb-8aa9-83a18c955014.png"}
+                          ancho={"40"} 
+                          alto={"40"} />}
             {...a11yProps(1)} />
-          <Tab onClick={() => { history.push(`/peliculas`) }}
-            label="Peliculas"
-            icon={<TheatersOutlinedIcon />}
+          <Tab className={classes.tab}  
+               onClick={() => { history.push(`/peliculas`) }}
+               label="Peliculas"
+               icon={<Imagen ruta={"https://user-images.githubusercontent.com/63796774/119747209-9d4ede80-be68-11eb-9129-95543fa67c79.png"}
+                          ancho={"40"} 
+                          alto={"40"} />}
             {...a11yProps(2)} />
-          <Tab onClick={() => { history.push(`/series`) }}
-            label="series"
-            icon={<MovieFilterOutlinedIcon />}
+          <Tab className={classes.tab}  
+               onClick={() => { history.push(`/series`) }}
+               label="series"
+               icon={<Imagen ruta={"https://user-images.githubusercontent.com/63796774/119747810-e3f10880-be69-11eb-9af9-f0a8eb7ec7d5.png"}
+                          ancho={"50"} 
+                          alto={"50"} />}
             {...a11yProps(3)} />
 
         </Tabs>
