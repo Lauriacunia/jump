@@ -20,9 +20,8 @@ const useStyles = makeStyles((theme) => ({
   },
   logo:{
       cursor: "pointer",
-      '&$hover': {
-        border: "1px, solid, red",
-        transform: `scale(0.7)`}
+      '&:hover': {
+        transform: `scale(1.2)`}
   },
   menuButton: {
     marginRight: theme.spacing(2),
