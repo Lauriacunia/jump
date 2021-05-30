@@ -6,7 +6,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Search from "./Search";
 import TabsContainer from "./TabsContainer";
 
 const useStyles = makeStyles((theme) => ({
@@ -55,10 +54,7 @@ const Navbar = ({handleSubmit, handleChange, valorDelInput}) => {
 
                 <TabsContainer />
                 
-                <Search valorDelInput={valorDelInput}
-                        handleChange={handleChange}
-                        handleSubmit={handleSubmit} />
-
+                
             </Toolbar>
         </AppBar>
 

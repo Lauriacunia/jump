@@ -44,9 +44,11 @@ search: {
   },
 }));
 
+
+
 const Search = ({handleSubmit, handleChange, valorDelInput}) => {
     const classes = useStyles();
-
+  
     return (
             <div className={classes.search}>
                <form onSubmit={handleSubmit}>

@@ -15,9 +15,7 @@ import ThumbDown from '@material-ui/icons/ThumbDown';
 import ThumbUp from '@material-ui/icons/ThumbUp';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import InsertEmoticonOutlinedIcon from '@material-ui/icons/InsertEmoticonOutlined';
-import TheatersOutlinedIcon from '@material-ui/icons/TheatersOutlined';
-import MovieFilterOutlinedIcon from '@material-ui/icons/MovieFilterOutlined';
+
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -116,6 +114,13 @@ const TabsContainer = () => {
           <Tab className={classes.tab}  
                onClick={() => { history.push(`/series`) }}
                label="series"
+               icon={<Imagen ruta={"https://user-images.githubusercontent.com/63796774/119747810-e3f10880-be69-11eb-9af9-f0a8eb7ec7d5.png"}
+                          ancho={"50"} 
+                          alto={"50"} />}
+            {...a11yProps(3)} />
+          <Tab className={classes.tab}  
+               onClick={() => { history.push(`/buscador`) }}
+               label="buscador"
                icon={<Imagen ruta={"https://user-images.githubusercontent.com/63796774/119747810-e3f10880-be69-11eb-9af9-f0a8eb7ec7d5.png"}
                           ancho={"50"} 
                           alto={"50"} />}
