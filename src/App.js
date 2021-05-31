@@ -42,18 +42,14 @@ const App = () => {
         <Navbar /> 
 
         <Switch>
-          <Route exact path="/home" component={Home}/>
+          <Route exact path="/" component={Home}/>
           <Route exact path="/new" component={Lanzamientos}/>
           <Route exact path="/popular" component={Populares}/>
-          <Route exact path="/movie" component={Peliculas}/>
+          <Route  path="/movie" component={Peliculas}/>
           <Route exact path="/tv" component={Series}/>
           <Route exact path="/search" component={Buscador}/>
-          <Route exact path="/movie/detail/:id" component={CardDetail}/>
-          <Route exact path="/tv/detail/:id" component={CardDetail}/>
-
-     
-         {/*<Route component={Page404}/>*/}
-       </Switch>    
+        </Switch>  
+          
        </div>
       </BrowserRouter>
       

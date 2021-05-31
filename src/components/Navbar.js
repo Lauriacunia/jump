@@ -50,7 +50,7 @@ const Navbar = ({handleSubmit, handleChange, valorDelInput}) => {
 
                 <img className={classes.logo} 
                      src = "https://user-images.githubusercontent.com/63796774/119274985-f0b2f980-bbe8-11eb-9d6a-5723d70ae69f.png"
-                     onClick = {()=> { history.push("/home")}}></img>  
+                     onClick = {()=> { history.push("/")}}></img>  
 
                 <TabsContainer />
                 
