@@ -1,5 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import {
+  BrowserRouter, 
+  Route, 
+  Link, 
+  Switch, useHistory, useParams, useLocation,
+  } 
+  from 'react-router-dom'
 import Slider from "./Slider";
 import Typography from '@material-ui/core/Typography';
 import { Container } from '@material-ui/core';
@@ -18,18 +25,23 @@ const useStyles = makeStyles({
 
 const Lanzamientos = () => {
   const classes = useStyles();
+  const history = useHistory();
   const APIKEY = `c30046e601e1f588297bc67b7f52c812`;
 
     return (
       <div className= {classes.root}>  
 
         <Container className= {classes.sliderContainer}>
-            <TituloSlider title={"Películas a estrenarse"} /> 
+            <div onClick = {()=> { history.push("/movie/up_coming")}}> 
+              <TituloSlider title={"Películas a estrenarse"} />
+            </div> 
             <Slider ruta={`movie/upcoming?language=en-US&page=1&api_key=${APIKEY}`}/>
         </Container>
 
          <Container className= {classes.sliderContainer}>
-            <TituloSlider title={"Series en el aire"} /> 
+            <div onClick = {()=> { history.push("/tv/on_the_air")}}> 
+              <TituloSlider title={"Series en el aire"} />
+            </div> 
             <Slider ruta={`tv/on_the_air?language=en-US&page=1&api_key=${APIKEY}`}/>
         </Container>
         
