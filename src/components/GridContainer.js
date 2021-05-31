@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { useHistory, useParams, useLocation, Link } from 'react-router-dom'
 import Search from "./Search";
 import { Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,15 +7,17 @@ import Grid from '@material-ui/core/Grid';
 import CardSimple from "./CardSimple";
 
 
-
-const GridContainer = ({valorDelInput, busqueda, handleClick}) => {
-   
+const GridContainer = ({history, location, valorDelInput, busqueda, handleClick}) => {
+    console.log(history)
+    console.log(location)
     const [resultados, setResultados] = useState([]);
+    const [url, setUrl] = useState(``); 
     const APIKEY = `c30046e601e1f588297bc67b7f52c812`;
          
+
     useEffect(() => {
-        const BASE_URL = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${APIKEY}`
-        const searchString = BASE_URL
+        
+        const searchString = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${APIKEY}`
 
         fetch(searchString)
             .then(res => res.json())
@@ -24,18 +27,21 @@ const GridContainer = ({valorDelInput, busqueda, handleClick}) => {
             })
     }, []);
 
-    useEffect(() => {
-      const BASE_URL = `https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${valorDelInput}&page=2`
-      const searchString = BASE_URL 
-     { valorDelInput && (
-      fetch(searchString)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data.results)
-            setResultados(data.results)
-        })
-      )}
-    }, [valorDelInput, busqueda]);
+
+
+        useEffect(() => {
+        const searchString = `https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${valorDelInput}&page=2` 
+        { valorDelInput && (
+        fetch(searchString)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.results)
+                setResultados(data.results)
+            })
+        )}
+        }, [valorDelInput, busqueda]);
+    
+
 
     return (
         <Container>

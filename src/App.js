@@ -16,8 +16,7 @@ import Peliculas from "./components/Peliculas"
 import Series from "./components/Series"
 import Buscador from "./components/Buscador"
 import CardDetail from "./components/CardDetail"
-
-
+import GridContainer from "./components/GridContainer";
 
 
 const useStyles = makeStyles({
@@ -44,13 +43,14 @@ const App = () => {
 
         <Switch>
           <Route exact path="/home" component={Home}/>
-          <Route exact path="/lanzamientos" component={Lanzamientos}/>
-          <Route exact path="/populares" component={Populares}/>
-          <Route exact path="/peliculas" component={Peliculas}/>
-          <Route exact path="/series" component={Series}/>
-          <Route exact path="/buscador" component={Buscador}/>
-          <Route exact path="/peliculas/:detalle" component={CardDetail}/>
-          <Route exact path="/series/:detalle" component={CardDetail}/>
+          <Route exact path="/new" component={Lanzamientos}/>
+          <Route exact path="/popular" component={Populares}/>
+          <Route exact path="/movie" component={Peliculas}/>
+          <Route exact path="/tv" component={Series}/>
+          <Route exact path="/search" component={Buscador}/>
+          <Route exact path="/movie/detail/:id" component={CardDetail}/>
+          <Route exact path="/tv/detail/:id" component={CardDetail}/>
+
      
          {/*<Route component={Page404}/>*/}
        </Switch>    

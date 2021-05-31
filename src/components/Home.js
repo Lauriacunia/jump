@@ -45,7 +45,8 @@ const Home = () => {
       </Container>
       
       <Container className= {classes.sliderContainer}>
-        <TituloSlider title={"Peliculas populares"} />       
+        <TituloSlider title={"Peliculas populares"} 
+                      onClick={() => { history.push(`/movie/popular`) }}/>       
         <Slider ruta ={`movie/popular?language=en-US&page=1&api_key=${APIKEY}`}/>  
       </Container>
       

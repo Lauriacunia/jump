@@ -1,20 +1,45 @@
 import React, { useRef, useState, useEffect } from "react";
+import { useHistory, useParams, useLocation, Link } from 'react-router-dom'
 import Search from "./Search";
-import { Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import CardSimple from "./CardSimple";
+import Paper from '@material-ui/core/Paper';
+import purple from '@material-ui/core/colors/purple';
+import Typography from '@material-ui/core/Typography';
+import GridContainer from "./GridContainer";
 
 const useStyles = makeStyles({
     root: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
       backgroundColor: "transparent",
       width:"100%",
       color: "#fafafa",
     },
+    paper: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "80vw",
+        backgroundColor: purple[600],
+        margin: 50,
+        padding: 30,
+        opacity: 0.5,
+        
+    },
+    titulo: {
+        color: "white",
+    }
   });
   
-const Buscador = () => {
+const Buscador = ({history, location, match}) => {
     const classes = useStyles();
+
+    console.log(history, location)
+    console.log(location.pathname)
+
     const [resultados, setResultados] = useState([]);
     const [valorDelInput, setValorDelInput] = useState('');
     const [busqueda, setBusqueda] = useState('');
@@ -36,45 +61,27 @@ const Buscador = () => {
         console.log(e.target.id)
     }
   
-    useEffect(() => {
-      const BASE_URL = `https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${valorDelInput}&page=1`
-      const searchString = BASE_URL 
-    
-      fetch(searchString)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data.results)
-            setResultados(data.results)
-        })
-    }, [valorDelInput, busqueda]);
+  
   
     return (
 
-       <>
-           <Search valorDelInput={valorDelInput}
+       <div  className={classes.root} >
+           <Paper className={classes.paper}>
+               <Typography className={classes.titulo}
+                           variant="h2" gutterBottom>
+                    ¿Qué quieres ver hoy?
+               </Typography>
+               <Search valorDelInput={valorDelInput}
                    handleChange={handleChange}
                    handleSubmit={handleSubmit} />
-           <Container className= {classes.busquedaContainer}>
-            <Grid container spacing={3}>    
-                {
-                    resultados.map((resultado) => {
-                        return (
-                            <Grid item xs={6} sm={3} 
-                                key={resultado.id}
-                                id={resultado.id}
-                                onClick={handleClick}>
-                                <CardSimple
-                                    resultado={resultado}
-                                    />
-                            </Grid>
-                        )
-                    })
-                }      
-            </Grid>
-           </Container>
+           </Paper>
+           
+            <GridContainer valorDelInput={valorDelInput}
+                           busqueda={busqueda}
+                           handleClick={handleClick} />
 
                  
-       </>
+       </div>
            
     )
 };
