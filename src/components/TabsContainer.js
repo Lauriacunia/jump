@@ -15,9 +15,7 @@ import ThumbDown from '@material-ui/icons/ThumbDown';
 import ThumbUp from '@material-ui/icons/ThumbUp';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import InsertEmoticonOutlinedIcon from '@material-ui/icons/InsertEmoticonOutlined';
-import TheatersOutlinedIcon from '@material-ui/icons/TheatersOutlined';
-import MovieFilterOutlinedIcon from '@material-ui/icons/MovieFilterOutlined';
+
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -92,7 +90,7 @@ const TabsContainer = () => {
           aria-label="scrollable force tabs example"
         >
           <Tab className={classes.tab} 
-               onClick={() => { history.push(`/lanzamientos`) }}
+               onClick={() => { history.push(`/new`) }}
                label="lanzamientos"
                icon={<Imagen ruta={"https://user-images.githubusercontent.com/63796774/119745476-945c0e00-be64-11eb-8903-0bf5ba683595.png"}
                           ancho={"50"} 
@@ -100,22 +98,29 @@ const TabsContainer = () => {
                            />}
             {...a11yProps(0)} />
           <Tab className={classes.tab}  
-               onClick={() => { history.push(`/populares`) }}
+               onClick={() => { history.push(`/popular`) }}
                label="populares"
                icon={<Imagen ruta={"https://user-images.githubusercontent.com/63796774/119745162-f36d5300-be63-11eb-8aa9-83a18c955014.png"}
                           ancho={"40"} 
                           alto={"40"} />}
             {...a11yProps(1)} />
           <Tab className={classes.tab}  
-               onClick={() => { history.push(`/peliculas`) }}
+               onClick={() => { history.push(`/movie`) }}
                label="Peliculas"
                icon={<Imagen ruta={"https://user-images.githubusercontent.com/63796774/119747209-9d4ede80-be68-11eb-9129-95543fa67c79.png"}
                           ancho={"40"} 
                           alto={"40"} />}
             {...a11yProps(2)} />
           <Tab className={classes.tab}  
-               onClick={() => { history.push(`/series`) }}
+               onClick={() => { history.push(`/tv`) }}
                label="series"
+               icon={<Imagen ruta={"https://user-images.githubusercontent.com/63796774/119747810-e3f10880-be69-11eb-9af9-f0a8eb7ec7d5.png"}
+                          ancho={"50"} 
+                          alto={"50"} />}
+            {...a11yProps(3)} />
+          <Tab className={classes.tab}  
+               onClick={() => { history.push(`/search`) }}
+               label="buscador"
                icon={<Imagen ruta={"https://user-images.githubusercontent.com/63796774/119747810-e3f10880-be69-11eb-9af9-f0a8eb7ec7d5.png"}
                           ancho={"50"} 
                           alto={"50"} />}

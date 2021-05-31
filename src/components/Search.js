@@ -8,13 +8,13 @@ const useStyles = makeStyles((theme) => ({
 search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    backgroundColor: fade("#fafafa", 0.15),
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: '100%',
+    width: '70vh',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
       width: 'auto',
@@ -30,23 +30,24 @@ search: {
     justifyContent: 'center',
   },
   inputRoot: {
-    color: 'inherit',
+    color: 'white',
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: '20ch',
+      minWidth: '800px',
     },
   },
 }));
 
+
+
 const Search = ({handleSubmit, handleChange, valorDelInput}) => {
     const classes = useStyles();
-
+  
     return (
             <div className={classes.search}>
                <form onSubmit={handleSubmit}>
@@ -56,7 +57,7 @@ const Search = ({handleSubmit, handleChange, valorDelInput}) => {
                   <InputBase
                   value={valorDelInput}
                   onChange={handleChange}
-                  placeholder="¿Qué querés ver hoy?…"
+                  placeholder="Ingresá tu búsqueda.."
                   classes={{
                       root: classes.inputRoot,
                       input: classes.inputInput,
