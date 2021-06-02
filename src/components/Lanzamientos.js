@@ -1,13 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
-  BrowserRouter, 
-  Route, 
-  Link, 
-  Switch, useHistory, useParams, useLocation,
+  useHistory,
   } 
   from 'react-router-dom'
-import Slider from "./Slider";
+import SliderMultiple from "./SliderMultiple";
 import Typography from '@material-ui/core/Typography';
 import { Container } from '@material-ui/core';
 import TituloSlider from "./TituloSlider";
@@ -35,14 +32,16 @@ const Lanzamientos = () => {
             <div onClick = {()=> { history.push("/movie/up_coming")}}> 
               <TituloSlider title={"Películas a estrenarse"} />
             </div> 
-            <Slider ruta={`movie/upcoming?language=en-US&page=1&api_key=${APIKEY}`}/>
+            <SliderMultiple categoria = {`movie`}
+                            subcategoria= {`upcoming`}/>
         </Container>
 
          <Container className= {classes.sliderContainer}>
             <div onClick = {()=> { history.push("/tv/on_the_air")}}> 
               <TituloSlider title={"Series en el aire"} />
             </div> 
-            <Slider ruta={`tv/on_the_air?language=en-US&page=1&api_key=${APIKEY}`}/>
+            <SliderMultiple categoria = {`tv`}
+                            subcategoria= {`onTheAir`}/>
         </Container>
         
       

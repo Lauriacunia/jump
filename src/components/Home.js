@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory, useParams, useLocation, Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
-import Slider from "./Slider";
+import SliderMultiple from "./SliderMultiple";
 import TituloSlider from "./TituloSlider";
 import SliderParallax from "./SliderParallax";
 
@@ -47,12 +47,14 @@ const Home = () => {
       <Container className= {classes.sliderContainer}>
         <TituloSlider title={"Peliculas populares"} 
                       onClick={() => { history.push(`/movie/popular`) }}/>       
-        <Slider ruta ={`movie/popular?language=en-US&page=1&api_key=${APIKEY}`}/>  
+        <SliderMultiple categoria = {`movie`}
+                        subcategoria= {`popular`} />  
       </Container>
       
       <Container className= {classes.sliderContainer}>
         <TituloSlider title={"Peliculas Mejor Rankeadas"} />
-        <Slider ruta ={`movie/top_rated?language=en-US&page=1&api_key=${APIKEY}`}/>  
+        <SliderMultiple categoria = {`movie`}
+                        subcategoria= {`topRated`} />  
       </Container>
 
     </div>
