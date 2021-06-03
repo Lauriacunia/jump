@@ -30,7 +30,7 @@ const Peliculas = () => {
       <div className= {classes.root}>
 
         <Container className= {classes.sliderContainer}>
-            <div onClick = {()=> { history.push("/movie/popular")}}>
+            <div onClick = {()=> { history.push("/trending/movie/week")}}>
               <TituloSlider title={"Películas que son tendencia"} /> 
             </div>
             <SliderMultiple categoria = {`trendingMovie`}

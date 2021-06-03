@@ -29,8 +29,7 @@ const TituloSlider = ({title}) => {
     const history = useHistory();
     
 return(
-    <div className={classes.tituloContainer}
-         onClick = {()=> { history.push("/home")}} >
+    <div className={classes.tituloContainer}>
     <Typography className={classes.titulo}
                 variant="h6" gutterBottom>
         {title} 
@@ -39,7 +38,7 @@ return(
             ancho={"30"} 
             alto={"25"} />
     
-  </div>
+    </div>
   )
     
 }
