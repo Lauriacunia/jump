@@ -17,7 +17,6 @@ import Series from "./components/Series"
 import Buscador from "./components/Buscador"
 import CardDetail from "./components/CardDetail"
 import GridContainer from "./components/GridContainer";
-import GridContainer2 from "./components/GridContainer2";
 
 
 const useStyles = makeStyles({
@@ -50,16 +49,16 @@ const App = () => {
           <Route exact path="/tv" component={Series}/>
           <Route exact path="/search" component={Buscador}/>
 
-          <Route exact path="/movie/popular" component={GridContainer2}/>
-          <Route exact path="/movie/trending" component={GridContainer2}/>
-          <Route exact path="/movie/now_playing" component={GridContainer2}/>
-          <Route exact path="/movie/up_coming" component={GridContainer2}/>
-          <Route exact path="/movie/top_rated" component={GridContainer2}/>
+          <Route exact path="/movie/popular" component={GridContainer}/>
+          <Route exact path="/trending/movie/week" component={GridContainer}/>
+          <Route exact path="/movie/now_playing" component={GridContainer}/>
+          <Route exact path="/movie/upcoming" component={GridContainer}/>
+          <Route exact path="/movie/top_rated" component={GridContainer}/>
 
-          <Route exact path="/tv/popular" component={GridContainer2}/>
-          <Route exact path="/tv/trending" component={GridContainer2}/>
-          <Route exact path="/tv/top_rated" component={GridContainer2}/>
-          <Route exact path="/tv/on_the_air" component={GridContainer2}/>
+          <Route exact path="/tv/popular" component={GridContainer}/>
+          <Route exact path="/trending/tv/week" component={GridContainer}/>
+          <Route exact path="/tv/top_rated" component={GridContainer}/>
+          <Route exact path="/tv/on_the_air" component={GridContainer}/>
 
         </Switch>  
           

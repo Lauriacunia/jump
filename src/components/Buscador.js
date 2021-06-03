@@ -78,7 +78,9 @@ const Buscador = ({history, location, match}) => {
            
             <GridContainer valorDelInput={valorDelInput}
                            busqueda={busqueda}
-                           handleClick={handleClick} />
+                           handleClick={handleClick}
+                           categoria={"movie"}
+                           subcategoria={"popular"} />
 
                  
        </div>

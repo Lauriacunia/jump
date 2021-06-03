@@ -29,7 +29,7 @@ const Lanzamientos = () => {
       <div className= {classes.root}>  
 
         <Container className= {classes.sliderContainer}>
-            <div onClick = {()=> { history.push("/movie/up_coming")}}> 
+            <div onClick = {()=> { history.push("/movie/upcoming")}}> 
               <TituloSlider title={"Películas a estrenarse"} />
             </div> 
             <SliderMultiple categoria = {`movie`}

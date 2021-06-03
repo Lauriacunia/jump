@@ -25,14 +25,14 @@ const Series = () => {
     return (
       <div className= {classes.root}> 
        <Container className= {classes.sliderContainer}>
-          <div onClick = {()=> { history.push("/tv/trending")}}> 
+          <div onClick = {()=> { history.push("/trending/tv/week")}}> 
             <TituloSlider title={"Series que son Tendencia"} /> 
           </div>
           <SliderMultiple categoria = {`trendingSerie`}
                           subcategoria= {``} />
         </Container>
         <Container className= {classes.sliderContainer}>
-          <div onClick = {()=> { history.push("/tv/trending")}}>
+          <div onClick = {()=> { history.push("/tv/popular")}}>
             <TituloSlider title={"Series populares"} />
           </div> 
             <SliderMultiple categoria = {`tv`}
