@@ -1,6 +1,5 @@
 
 import React, { useRef, useState, useEffect } from "react";
-import { makeStyles } from '@material-ui/core/styles';
 import CardSimple from "./CardSimple";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
@@ -12,24 +11,45 @@ import SwiperCore, {
 
 SwiperCore.use([Pagination,Navigation]);
 
-const useStyles = makeStyles({
-
-  
-});
-
 const handleClick = (e) => {
   console.log("hola")
   console.log(e.target.id)
 }
 
-const Slider = ({ruta}) => {
+
+const SliderMultiple = ({categoria, subcategoria}) => {
+  console.log(categoria)
+  console.log(subcategoria)
+ 
+  const BASE_URL = `https://api.themoviedb.org/3`
+  const APIKEY = `c30046e601e1f588297bc67b7f52c812`;
+  let queryParams = `?language=en-US&page=1&api_key=${APIKEY}`
+  let ruta = ``
   console.log(ruta)
-  const classes = useStyles();
+
+  const concatenarRuta = (pathASumar) => {
+    ruta = ruta + pathASumar
+  }
+   
+
+  {categoria === `movie` && concatenarRuta("/movie")}
+  {categoria === `tv` &&  concatenarRuta("/tv")}
+  {categoria === `trendingMovie` && concatenarRuta(`/trending/movie/week`)}
+  {categoria === `trendingSerie` && concatenarRuta(`/trending/tv/week`)}
+  {subcategoria === `topRated` && concatenarRuta(`/top_rated`)}
+  {subcategoria === `popular` && concatenarRuta(`/popular`)}
+  {subcategoria === `nowPlaying` && concatenarRuta(`/now_playing`)}
+  {subcategoria === `upcoming` && concatenarRuta(`/upcoming`)}
+  {subcategoria === `onTheAir` && concatenarRuta(`/on_the_air`)}
+
+  console.log(ruta)
+
   const [resultados, setResultados] = useState([]);
 
   useEffect(() => {
-      const BASE_URL = `https://api.themoviedb.org/3/`
-      const searchString = `${BASE_URL}${ruta}`
+      
+      const searchString = `${BASE_URL}${ruta}${queryParams}`
+      console.log(searchString)
 
       fetch(searchString)
           .then(res => res.json())
@@ -67,4 +87,4 @@ const Slider = ({ruta}) => {
   )
 }
 
-export default Slider
+export default SliderMultiple

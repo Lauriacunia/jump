@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, useParams, useLocation, Link } from 'react-router-dom'
+import { useHistory} from 'react-router-dom'
 import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
