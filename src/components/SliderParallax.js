@@ -1,5 +1,5 @@
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css"
@@ -13,8 +13,10 @@ SwiperCore.use([Parallax, Navigation, Pagination]);
 
 
 const SliderParallax = ({ruta}) => {
+  console.log(ruta)
 
   const [resultados, setResultados] = useState([]);
+ 
   
   const recortarTitulo = (str) => {
     let strCorto = `${str.slice(0, 28)}...`
@@ -26,10 +28,11 @@ const SliderParallax = ({ruta}) => {
         console.log(e.target)
     }
 
-
-  useEffect(() => {
+    useEffect(() => {
+      console.log("entre al fecth de parallax")
       const BASE_URL = `https://api.themoviedb.org/3/`
       const searchString = `${BASE_URL}${ruta}`
+      console.log(searchString)
 
       fetch(searchString)
           .then(res => res.json())
@@ -45,14 +48,16 @@ const SliderParallax = ({ruta}) => {
       <Swiper style={{ '--swiper-navigation-color': '#fff', '--swiper-pagination-color': '#fff' }} speed={600} parallax={true} pagination={{
         "clickable": true
       }} navigation={true} className="mySwiper">
-        
+        <div slot="container-start" className="parallax-bg" style={{ 'background-image': `https://image.tmdb.org/t/p/w370_and_h556_bestv2/yyWNPhP1HR4BTLErHcZwIUsMBvA.jpg` }} data-swiper-parallax="-23%"> </div> 
         
         {
             resultados.map((resultado) => {
                 return (
                   <React.Fragment key={resultado.id}> 
-                    <div slot="container-start" className="parallax-bg" style={{ 'background-image': `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${resultado.backdrop_path}` }} data-swiper-parallax="-23%"> </div>             
+                               
                     <SwiperSlide>
+                      {console.log(`https://image.tmdb.org/t/p/w370_and_h556_bestv2${resultado.backdrop_path}`)}
+                    <div slot="container-start" className="parallax-bg" style={{ 'background-image': `https://image.tmdb.org/t/p/w370_and_h556_bestv2${resultado.backdrop_path}` }} data-swiper-parallax="-23%"> </div> 
                       <div className="title" data-swiper-parallax="-300">
                           { resultado.title
                             ? resultado.title.length < 28 
@@ -74,9 +79,6 @@ const SliderParallax = ({ruta}) => {
                 )
             })
         }       
-
-       
-
 
       </Swiper>
     </>

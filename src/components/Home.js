@@ -40,9 +40,9 @@ const Home = () => {
 
   return (
     <div className= {classes.root}>
-      <Container className= {classes.sliderContainer}>
-        <SliderParallax ruta ={`movie/popular?language=en-US&page=1&api_key=${APIKEY}`}/>
-      </Container>
+      
+      <SliderParallax ruta ={`movie/popular?language=en-US&page=1&api_key=${APIKEY}`}/>
+     
       
       <Container className= {classes.sliderContainer}>
         <TituloSlider title={"Peliculas populares"} 
