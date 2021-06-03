@@ -1,24 +1,31 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useHistory, useParams, useLocation, Link } from 'react-router-dom'
-import Search from "./Search";
 import { Container } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import CardSimple from "./CardSimple";
 import TituloContainer from "./TituloContainer";
+import Paginado from "./Paginado";
+import TituloResultados from "./TituloResultados";
 
 
 const GridContainer = ({history, location, valorDelInput, busqueda, handleClick}) => {
     console.log(history)
     console.log(location)  
 
-    let {pathname} = useLocation();
+    let {pathname, search} = useLocation();
     console.log(pathname)
+    let query = new URLSearchParams(search);
+    let pageActual = parseInt(query.get("page"));
+    console.log(pageActual)
+
     const [resultados, setResultados] = useState([]);
- 
+    const [totalDePaginas, setTotalDePaginas] = useState([]);
+    const [totalDeResultados, setTotalDeResultados] = useState([]);
+    const [page, setPage] = useState(1);
+
     const BASE_URL = `https://api.themoviedb.org/3`
     const APIKEY = `c30046e601e1f588297bc67b7f52c812`;
-    let queryParams = `?language=en-US&page=1&api_key=${APIKEY}`
+    let queryParams = `?language=en-US&page=${page}&api_key=${APIKEY}`
     let ruta = ``
     console.log(ruta)
 
@@ -42,6 +49,8 @@ const GridContainer = ({history, location, valorDelInput, busqueda, handleClick}
             .then(data => {
                 console.log(data.results)
                 setResultados(data.results)
+                setTotalDePaginas(data.total_pages)
+                setTotalDeResultados(data.total_results)
             })
     }, []);
 
@@ -54,6 +63,8 @@ const GridContainer = ({history, location, valorDelInput, busqueda, handleClick}
         .then(data => {
             console.log(data.results)
             setResultados(data.results)
+            setTotalDePaginas(data.total_pages)
+            setTotalDeResultados(data.total_results)
         })
     )}
     }, [valorDelInput, busqueda]);
@@ -62,7 +73,9 @@ const GridContainer = ({history, location, valorDelInput, busqueda, handleClick}
 
     return (
         <Container>
-        <TituloContainer />
+        {pathname === `/search` || <TituloContainer /> }
+      
+        <TituloResultados totalDeResultados = {totalDeResultados}/>
         <Grid container spacing={3}>    
             {
                 resultados.map((resultado) => {
@@ -79,6 +92,8 @@ const GridContainer = ({history, location, valorDelInput, busqueda, handleClick}
                 })
             }      
         </Grid>
+        <Paginado totalDePaginas= {totalDePaginas}
+                  paginaActual= {pageActual}/>
        </Container>
     )
 }
