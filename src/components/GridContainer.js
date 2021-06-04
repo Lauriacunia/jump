@@ -86,6 +86,7 @@ const GridContainer = ({history, location, valorDelInput, busqueda, handleClick}
                             onClick={handleClick}>
                             <CardSimple
                                 resultado={resultado}
+                                categoria={resultado.media_type}
                                 />
                         </Grid>
                     )

@@ -5,6 +5,12 @@ import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css"
 import "swiper/components/navigation/navigation.min.css"
 import "./SliderParallax.css";
+import Boton from "./Boton";
+import {
+  useHistory
+  } 
+  from 'react-router-dom'
+
 
 import SwiperCore, {
   Parallax, Navigation, Pagination
@@ -15,6 +21,7 @@ SwiperCore.use([Parallax, Navigation, Pagination]);
 
 const SliderParallax = ({ruta}) => {
   console.log(ruta)
+  const history = useHistory();
 
   const [resultados, setResultados] = useState([]);
  
@@ -73,7 +80,7 @@ const SliderParallax = ({ruta}) => {
                         <div className="text" data-swiper-parallax="-100">
                           <p>{resultado.overview}</p>
                         </div>
-                    
+                        <Boton onClick = {()=> { history.push("/movie")}}/>
                   </SwiperSlide>
                  
                   </React.Fragment>

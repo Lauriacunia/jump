@@ -1,5 +1,12 @@
 
 import React, { useRef, useState, useEffect } from "react";
+import {
+  BrowserRouter, 
+  Route, 
+  Link, 
+  Switch, useHistory, useParams, useLocation,
+  } 
+  from 'react-router-dom'
 import CardSimple from "./CardSimple";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
@@ -11,6 +18,7 @@ import SwiperCore, {
 
 SwiperCore.use([Pagination,Navigation]);
 
+
 const handleClick = (e) => {
   console.log("hola")
   console.log(e.target.id)
@@ -20,6 +28,7 @@ const handleClick = (e) => {
 const SliderMultiple = ({categoria, subcategoria}) => {
   console.log(categoria)
   console.log(subcategoria)
+  const history = useHistory();
  
   const BASE_URL = `https://api.themoviedb.org/3`
   const APIKEY = `c30046e601e1f588297bc67b7f52c812`;
@@ -72,13 +81,16 @@ const SliderMultiple = ({categoria, subcategoria}) => {
           {
             resultados.map((resultado) => {
                 return (
-                    <SwiperSlide key={resultado.id}
-                                 id={resultado.id}
-                                 onClick={handleClick}>
-                        <CardSimple
-                            resultado={resultado}
-                            />
-                    </SwiperSlide>
+                  <div key={resultado.id} 
+                        onClick = {()=> { console.log("hiciste click en la card ") 
+                                          history.push("/tv/top_rated")}}>      
+                      <SwiperSlide>
+                          <CardSimple
+                              resultado={resultado}
+                              categoria={categoria}
+                              />
+                      </SwiperSlide>
+                  </div>
                 )
             })
         }       

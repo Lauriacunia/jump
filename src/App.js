@@ -60,6 +60,9 @@ const App = () => {
           <Route exact path="/tv/top_rated" component={GridContainer}/>
           <Route exact path="/tv/on_the_air" component={GridContainer}/>
 
+          <Route exact path="/movie/:id" component={CardDetail}/>
+          <Route exact path="/tv/:id" component={CardDetail}/>
+
         </Switch>  
           
        </div>

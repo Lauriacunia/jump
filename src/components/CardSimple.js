@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+  BrowserRouter, 
+  Route, 
+  Link, 
+  Switch, useHistory, useParams, useLocation,
+  } 
+  from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -17,19 +24,29 @@ const useStyles = makeStyles({
   },
 });
 
-const CardSimple = ({ resultado }) => {
+const CardSimple = ({ resultado, categoria }) => {
   const classes = useStyles();
+  const history = useHistory();
+  console.log(resultado.id)
+  console.log(categoria)
 
   const recortarTitulo = (str) => {
     let strCorto = `${str.slice(0, 28)}...`
     return strCorto;
-  };
+  }; 
 
-
+  const cambiarRuta = (path) => {
+    categoria = path
+  }
+   
+  {categoria === `trendingMovie` && cambiarRuta(`movie`)}
+  {categoria === `trendingSerie` && cambiarRuta(`tv`)}
 
   return (
-    <Card className={classes.root}
-          >
+    <Card className={classes.root} 
+          onClick = {()=> { console.log("hiciste click en la card ") 
+          history.push(`/${categoria}/${resultado.id}`)}}>   
+          
       <CardActionArea>
         <CardMedia
             className={classes.media}
