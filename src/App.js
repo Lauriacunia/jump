@@ -1,5 +1,3 @@
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -9,7 +7,8 @@ import {
     Switch, 
     } 
     from 'react-router-dom'
-
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 import Lanzamientos from "./components/Lanzamientos"
 import Populares from "./components/Populares"
 import Peliculas from "./components/Peliculas"
@@ -17,6 +16,8 @@ import Series from "./components/Series"
 import Buscador from "./components/Buscador"
 import CardDetail from "./components/CardDetail"
 import GridContainer from "./components/GridContainer";
+import Footer from "./components/Footer";
+
 
 
 const useStyles = makeStyles({
@@ -24,11 +25,10 @@ const useStyles = makeStyles({
     body: {
       margin: 0,
       padding: 0,
+      backgroundColor: "black",
       }
     },
-   mainContainer: {
-    backgroundImage: `url(${"https://user-images.githubusercontent.com/63796774/119273651-3d470680-bbe2-11eb-9a9e-e571fcc86d18.png"})`
-   }
+  
 });
 
 
@@ -62,9 +62,8 @@ const App = () => {
 
           <Route exact path="/movie/:id" component={CardDetail}/>
           <Route exact path="/tv/:id" component={CardDetail}/>
-
-        </Switch>  
-          
+        </Switch>   
+        <Footer/>
        </div>
       </BrowserRouter>
       
