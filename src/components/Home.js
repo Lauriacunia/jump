@@ -23,7 +23,12 @@ const useStyles = makeStyles({
     marginTop: 10,
     marginBottom: 10,
   },
-
+  parallaxContainer: {
+    width: "100%",
+    height: "70vh",
+    backgroundColor: "red",
+    marginBottom: "50px",
+  },
   flecha: {
     width: 30,
     height: 25,
@@ -40,9 +45,9 @@ const Home = () => {
 
   return (
     <div className={classes.root}>
-
+      <Container className={classes.parallaxContainer}>
       <SliderParallax ruta={`movie/popular?language=en-US&page=1&api_key=${APIKEY}`} />
-
+      </Container>
 
       <Container className={classes.sliderContainer}>
         <div onClick={() => { history.push(`/movie/popular`) }}>
