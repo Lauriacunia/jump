@@ -114,9 +114,9 @@ const TabsContainer = () => {
           <Tab className={classes.tab}  
                onClick={() => { history.push(`/search`) }}
                label="buscador"
-               icon={<Imagen ruta={"https://user-images.githubusercontent.com/63796774/119747810-e3f10880-be69-11eb-9af9-f0a8eb7ec7d5.png"}
-                          ancho={"50"} 
-                          alto={"50"} />}
+               icon={<Imagen ruta={"https://user-images.githubusercontent.com/63796774/121969081-f1ebc800-cd49-11eb-8a9c-2130b15a6a54.gif"}
+                          ancho={"70"} 
+                          alto={"70"} />}
             {...a11yProps(3)} />
 
         </Tabs>

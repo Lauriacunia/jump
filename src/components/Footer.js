@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import Container from '@material-ui/core/Container';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -12,9 +13,10 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        width: '100%',
         height: 200,
         marginTop: 50,
-        backgroundColor: "black",
+        backgroundColor: theme.palette.primary.main,
         color: "white",
     },
     iconsContainer: {
@@ -22,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "center",
         alignItems: "center",
         marginTop: 10,
-        color: "white",
         fontSize: 20,
     },
     icon1: {
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 const Footer = () => {
     const classes = useStyles();
     return (
-        <div className={classes.footerContainer}>
+        <Container className={classes.footerContainer} maxWidth={false}>
             <Typography
                 variant="h6" gutterBottom>
                 {"Sitio realizado por Laura Acuña"}
@@ -48,20 +49,20 @@ const Footer = () => {
             </Typography>
             <div className={classes.iconsContainer}>
                 <a href="https://github.com/Lauriacunia" target="_blank" rel="noreferrer">
-                    <IconButton color="primary"
+                    <IconButton color="secondary"
                         aria-label="add an alarm">
                         <GitHubIcon className={classes.icon1} />
                     </IconButton>
                 </a>
                 <a href="https://www.linkedin.com/in/lauriacunia/" target="_blank" rel="noreferrer">
-                    <IconButton color="primary"
+                    <IconButton color="secondary"
                         aria-label="add an alarm">
                         <LinkedInIcon className={classes.icon2} />
                     </IconButton>
                 </a>
 
             </div>
-        </div>
+        </Container>
     )
 }
 

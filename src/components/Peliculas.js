@@ -11,6 +11,8 @@ import {
 import SliderMultiple from "./SliderMultiple";
 import { Container } from '@material-ui/core';
 import TituloSlider from "./TituloSlider";
+import Hero from './Hero';
+import cat from '../assets/cat.json';
 
 
 const useStyles = makeStyles({
@@ -26,9 +28,17 @@ const Peliculas = () => {
   const history = useHistory();
   const APIKEY = `c30046e601e1f588297bc67b7f52c812`;
 
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
     return (
       <div className= {classes.root}>
-
+        <Hero title={"¿Que tal una de acción?"}
+              animation={cat}
+              height={330}
+              width={330}/>
         <Container className= {classes.sliderContainer}>
             <div onClick = {()=> { history.push("/trending/movie/week")}}>
               <TituloSlider title={"Películas que son tendencia"} /> 

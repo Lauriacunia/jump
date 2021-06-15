@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import SliderMultiple from "./SliderMultiple";
 import { Container } from '@material-ui/core';
@@ -7,6 +7,8 @@ import {
   useHistory
   } 
   from 'react-router-dom'
+import Hero from './Hero';
+import chick from '../assets/chick.json'
 
 const useStyles = makeStyles({
   root: {
@@ -22,8 +24,17 @@ const Series = () => {
   const history = useHistory();
   const APIKEY = `c30046e601e1f588297bc67b7f52c812`;
   
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, []) 
+
     return (
       <div className= {classes.root}> 
+      <Hero title={"¿Estás listo para una Maratón?"}
+              animation={chick}              
+              height={350}
+              width={350}/>
        <Container className= {classes.sliderContainer}>
           <div onClick = {()=> { history.push("/trending/tv/week")}}> 
             <TituloSlider title={"Series que son Tendencia"} /> 

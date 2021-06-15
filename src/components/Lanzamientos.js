@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import {
   useHistory,
@@ -8,6 +8,8 @@ import SliderMultiple from "./SliderMultiple";
 import Typography from '@material-ui/core/Typography';
 import { Container } from '@material-ui/core';
 import TituloSlider from "./TituloSlider";
+import Hero from './Hero';
+import llama from '../assets/llama.json'
 
 
 const useStyles = makeStyles({
@@ -24,10 +26,17 @@ const Lanzamientos = () => {
   const classes = useStyles();
   const history = useHistory();
   const APIKEY = `c30046e601e1f588297bc67b7f52c812`;
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, []) 
 
     return (
       <div className= {classes.root}>  
-
+        <Hero title={"No puedes resistirte a los estrenos"}
+              animation={llama}              
+              height={450}
+              width={450}/>
         <Container className= {classes.sliderContainer}>
             <div onClick = {()=> { history.push("/movie/upcoming")}}> 
               <TituloSlider title={"Películas a estrenarse"} />

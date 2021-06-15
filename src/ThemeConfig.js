@@ -1,40 +1,60 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import lime from '@material-ui/core/colors/lime';
+import pink from '@material-ui/core/colors/pink';
+import cyan from '@material-ui/core/colors/cyan';
 
 
 const theme = createMuiTheme({
   
-    palette: {
+        palette: {
         primary: {
-          main: purple[600],
+          main: cyan[500],
         },
         secondary: {
-          main: "#ffff00",
+          main: pink[500],
         },
       },
-
       typography: {
         h1: {
           fontFamily: [
-            '"Ubuntu"',
-            'sans-serif',  
+            'Oswald',
+            'sans-serif',
           ].join(','),
-          fontWeight: 500,
+          fontWeight: 700,
         },
         h2: {
           fontFamily: [
-            '"Ubuntu"',
-            'sans-serif',  
+            'Oswald',
+            'sans-serif',
+          ].join(','),
+          fontWeight: 700,
+        },
+        h3: {
+          fontFamily: [
+            'Oswald',
+            'sans-serif',
+          ].join(','),
+          fontWeight: 700,
+        },
+        h4: {
+          fontFamily: [
+            'Oswald',
+            'sans-serif',
+          ].join(','),
+          fontWeight: 500,
+        },
+        h5: {
+          fontFamily: [
+            'Oswald',
+            'sans-serif',
           ].join(','),
           fontWeight: 500,
         },
         h6: {
           fontFamily: [
-            '"Ubuntu"',
-            'sans-serif',  
+            'Oswald',
+            'sans-serif',
           ].join(','),
-          fontWeight: 300,
+          fontWeight: 500,
         },
       }
 });

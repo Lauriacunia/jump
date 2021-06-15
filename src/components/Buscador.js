@@ -2,37 +2,33 @@ import React, { useRef, useState, useEffect } from "react";
 import { useHistory, useParams, useLocation, Link } from 'react-router-dom'
 import Search from "./Search";
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import purple from '@material-ui/core/colors/purple';
+import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import GridContainer from "./GridContainer";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-      backgroundColor: "transparent",
-      width:"100%",
-      color: "#fafafa",
+        padding: 0,
+        backgroundColor: "transparent",
     },
-    paper: {
+    searchContainer: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        width: "80vw",
-        backgroundColor: purple[600],
-        margin: 50,
-        padding: 30,
-        opacity: 0.5,
-        
+        height: '450px',
+        backgroundColor: theme.palette.primary.main,
+        marginBottom: 50,
     },
+ 
     titulo: {
         color: "white",
     }
-  });
+  }));
   
 const Buscador = ({history, location, match}) => {
     const classes = useStyles();
@@ -62,28 +58,30 @@ const Buscador = ({history, location, match}) => {
     }
   
   
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
   
     return (
 
-       <div  className={classes.root} >
-           <Paper className={classes.paper}>
+       <Container  className={classes.root} maxWidth={false}>
+           <Container className={classes.searchContainer} maxWidth={false}>
                <Typography className={classes.titulo}
-                           variant="h2" gutterBottom>
+                           variant="h1" gutterBottom>
                     ¿Qué quieres ver hoy?
                </Typography>
                <Search valorDelInput={valorDelInput}
                    handleChange={handleChange}
                    handleSubmit={handleSubmit} />
-           </Paper>
+           </Container>
            
-            <GridContainer valorDelInput={valorDelInput}
+            <GridContainer 
+                           valorDelInput={valorDelInput}
                            busqueda={busqueda}
                            handleClick={handleClick}
                            categoria={"movie"}
-                           subcategoria={"popular"} />
-
-                 
-       </div>
+                           subcategoria={"popular"} />      
+       </Container>
            
     )
 };
