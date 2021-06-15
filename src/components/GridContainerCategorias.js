@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
-import { useHistory, useParams, useLocation, Link } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { useLocation } from 'react-router-dom'
 import { Container } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import CardSimple from "./CardSimple";
@@ -8,26 +8,17 @@ import Paginado from "./Paginado";
 import TituloResultados from "./TituloResultados";
 
 
-const GridContainer = ({history, location, valorDelInput, busqueda, handleClick}) => {
-    console.log(history)
-    console.log(location)  
-
-    let {pathname, search} = useLocation();
-    console.log(pathname)
-    let query = new URLSearchParams(search);
-    let pageActual = parseInt(query.get("page"));
-    console.log(pageActual)
+const GridContainerCategorias = ({valorDelInput, busqueda, handleClick}) => {
 
     const [resultados, setResultados] = useState([]);
-    const [totalDePaginas, setTotalDePaginas] = useState([]);
     const [totalDeResultados, setTotalDeResultados] = useState([]);
-    const [page, setPage] = useState(1);
-
+    const [totalDePaginas, setTotalDePaginas] = useState([]);
+    const [paginaActual, setPaginaActual] = useState(1);
+    let {pathname} = useLocation();  
     const BASE_URL = `https://api.themoviedb.org/3`
     const APIKEY = `c30046e601e1f588297bc67b7f52c812`;
-    let queryParams = `?language=en-US&page=${page}&api_key=${APIKEY}`
-    let ruta = ``
-    console.log(ruta)
+    let queryParams = `?language=en-US&page=${paginaActual}&api_key=${APIKEY}`
+    let ruta = `` 
 
     const asignarRuta = (path) => {
         ruta = path
@@ -38,10 +29,8 @@ const GridContainer = ({history, location, valorDelInput, busqueda, handleClick}
      : asignarRuta(pathname)
      }
     
-    console.log(ruta)
         
-    useEffect(() => {
-        
+    useEffect(() => {   
         const searchString = `${BASE_URL}${ruta}${queryParams}`
 
         fetch(searchString)
@@ -56,9 +45,9 @@ const GridContainer = ({history, location, valorDelInput, busqueda, handleClick}
 
 
     useEffect(() => {
-    const searchString = `https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${valorDelInput}&page=2` 
+    { valorDelInput && setPaginaActual(1) }
     { valorDelInput && (
-    fetch(searchString)
+    fetch(`https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${valorDelInput}&page=${paginaActual}`)
         .then(res => res.json())
         .then(data => {
             console.log(data.results)
@@ -67,9 +56,11 @@ const GridContainer = ({history, location, valorDelInput, busqueda, handleClick}
             setTotalDeResultados(data.total_results)
         })
     )}
-    }, [valorDelInput, busqueda]);
+    }, [valorDelInput, busqueda, paginaActual]);
     
-
+    const onChangePaginado = (e) => {
+        setPaginaActual (paginaActual + 1)
+    }
 
     return (
         <Container>
@@ -94,9 +85,10 @@ const GridContainer = ({history, location, valorDelInput, busqueda, handleClick}
             }      
         </Grid>
         <Paginado totalDePaginas= {totalDePaginas}
-                  paginaActual= {pageActual}/>
+                  paginaActual= {paginaActual}
+                  onChangePaginado = {onChangePaginado}/>
        </Container>
     )
 }
 
-export default GridContainer
+export default GridContainerCategorias
