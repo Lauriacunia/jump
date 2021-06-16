@@ -11,6 +11,10 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Imagen from "./Imagen";
 import TabsContainerSm from "./TabsContainerSm";
+import CastContainer from './CastContainer';
+import SimilarContainer from './SimilarContainer';
+import TemporadasContainer from './TemporadasContainer';
+import TrailersContainer from './TrailersContainer';
 
 const CardDetail = () => {
    
@@ -86,40 +90,49 @@ const CardDetail = () => {
       }
 
     return(
-        <Container className={classes.main} maxWidth={false}>
-             {averiguarCategoria()}
-            <Container className={classes.cardContainer} maxWidth={false}>
-               <Container className={classes.overlay} maxWidth={false}></Container>
-               <Container className={classes.dataContainer} maxWidth={false}>
-                    <Imagen ruta= {`https://image.tmdb.org/t/p/w370_and_h556_bestv2/${resultado.poster_path}`}
-                            alto={450}
-                            ancho={300}/>
-                    <Container className={classes.textContainer} maxWidth={false}>
-                        <Typography className={classes.title} gutterBottom variant="h3" color="textSecondary">
-                            { resultado.title || resultado.name }
-                        </Typography>
-                        <Typography className={classes.title} gutterBottom variant="subtitle" color="textSecondary">
-                            { resultado.original_title|| resultado.name }
-                        </Typography>
-                        <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
-                            {resultado.first_air_date && `Año: ${resultado.first_air_date}`}
-                        </Typography>
-                        <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
-                            { resultado.runtime && `Duración: ${resultado.runtime} min` }
-                        </Typography>
-                        <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
-                           { resultado.genres && `Genero: ${resultado.genres[1]}` }     
-                        </Typography>
-                        <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
-                            { resultado.overview }
-                        </Typography>
+        <BrowserRouter>
+            <Container className={classes.main} maxWidth={false}>
+                {averiguarCategoria()}
+                <Container className={classes.cardContainer} maxWidth={false}>
+                <Container className={classes.overlay} maxWidth={false}></Container>
+                <Container className={classes.dataContainer} maxWidth={false}>
+                        <Imagen ruta= {`https://image.tmdb.org/t/p/w370_and_h556_bestv2/${resultado.poster_path}`}
+                                alto={450}
+                                ancho={300}/>
+                        <Container className={classes.textContainer} maxWidth={false}>
+                            <Typography className={classes.title} gutterBottom variant="h3" color="textSecondary">
+                                { resultado.title || resultado.name }
+                            </Typography>
+                            <Typography className={classes.title} gutterBottom variant="subtitle" color="textSecondary">
+                                { resultado.original_title|| resultado.name }
+                            </Typography>
+                            <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
+                                {resultado.first_air_date && `Año: ${resultado.first_air_date}`}
+                            </Typography>
+                            <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
+                                { resultado.runtime && `Duración: ${resultado.runtime} min` }
+                            </Typography>
+                            <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
+                            { resultado.genres && `Genero: ${resultado.genres[1]}` }     
+                            </Typography>
+                            <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
+                                { resultado.overview }
+                            </Typography>
+                        </Container>
                     </Container>
                 </Container>
+                <Container className={classes.tabsContainer} maxWidth={false}>
+                    <TabsContainerSm categoria={categoria}/>
+                </Container>
+                <Switch>
+                    <Route exact path={`${ruta}/${resultado.id}/cast`} component={CastContainer} />
+                    <Route exact path={`${ruta}/${resultado.id}/similar`} component={SimilarContainer} />
+                    <Route exact path={`${ruta}/${resultado.id}/season`} component={TemporadasContainer} />
+                    <Route exact path={`${ruta}/${resultado.id}/trailer`} component={TrailersContainer} />
+                </Switch>
+
             </Container>
-            <Container className={classes.tabsContainer} maxWidth={false}>
-                <TabsContainerSm categoria={categoria}/>
-            </Container>
-        </Container>
+        </BrowserRouter>
     )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory,  useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -63,6 +63,8 @@ const useStyles = makeStyles((theme) => ({
 const TabsContainerSm = ({categoria}) => {
   const classes = useStyles();
   const history = useHistory();
+  let location = useLocation();
+  const ruta = location.pathname
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -82,15 +84,15 @@ const TabsContainerSm = ({categoria}) => {
             { categoria === 'movie' && (
             <>
                 <Tab className={classes.tabs}
-                    onClick={() => { history.push(`/cast`) }}
+                    onClick={() => { history.push(`${ruta}`) }}
                     label="reparto"
                     {...a11yProps(0)} />
                 <Tab className={classes.tabs}
-                    onClick={() => { history.push(`/similar`) }}
+                    onClick={() => { history.push(`${ruta}/similar`) }}
                     label="similares"
                     {...a11yProps(1)} />
                 <Tab className={classes.tabs}
-                    onClick={() => { history.push(`/trailers`) }}
+                    onClick={() => { history.push(`${ruta}/trailer`) }}
                     label="trailers "
                     {...a11yProps(2)} />
             </>
@@ -99,19 +101,19 @@ const TabsContainerSm = ({categoria}) => {
             { categoria === 'tv' && (
             <>
                 <Tab className={classes.tabs}
-                    onClick={() => { history.push(`/season`) }}
+                    onClick={() => { history.push(`${ruta}/season`) }}
                     label="episodios"
                     {...a11yProps(0)} />
                 <Tab className={classes.tabs}
-                    onClick={() => { history.push(`/cast`) }}
+                    onClick={() => { history.push(`${ruta}`) }}
                     label="reparto"
                     {...a11yProps(1)} />
                 <Tab className={classes.tabs}
-                    onClick={() => { history.push(`/similar`) }}
+                    onClick={() => { history.push(`${ruta}/similar`) }}
                     label="similares "
                     {...a11yProps(2)} />
                 <Tab className={classes.tabs}
-                    onClick={() => { history.push(`/trailers`) }}
+                    onClick={() => { history.push(`${ruta}/trailer`) }}
                     label="trailers"
                     {...a11yProps(2)} />
             </>
