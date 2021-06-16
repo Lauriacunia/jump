@@ -10,11 +10,17 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     marginTop: 30,
     marginBottom: 50,
-    backgroundColor: "white",
     '& > *': {
       marginTop: theme.spacing(2), 
     },
   },
+  root: {
+    '& ul > li:not(:first-child):not(:last-child) > button:not(.Mui-selected)': {
+      backgroundColor: 'transparent',
+      color:'white',
+      border: '1px solid white',
+     },
+    }
 
 }));
 
@@ -38,7 +44,7 @@ const Paginado = ({totalDePaginas, paginaActual, onChangePaginado}) => {
    
       <div className={classes.paginadoContainer}>
         {setBotones()}
-        <Pagination
+        <Pagination className={classes.root}
                     count={totalDePaginas}
                     page={paginaActual} 
                     onChange={onChangePaginado} 

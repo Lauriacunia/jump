@@ -20,7 +20,11 @@ const GridContainerCategorias = ({ handleClick}) => {
     const APIKEY = `c30046e601e1f588297bc67b7f52c812`;
     let queryParams = `?language=en-US&page=${paginaActual}&api_key=${APIKEY}`
     let categoria;
-              
+         
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [paginaActual])
+
     useEffect(() => {   
         const searchString = `${BASE_URL}${pathname}${queryParams}`
 
@@ -39,17 +43,10 @@ const GridContainerCategorias = ({ handleClick}) => {
       };
 
     const averiguarCategoria = () => {
+      let pathnameInicial = `${pathname.slice(0, 2)}`
+      pathnameInicial ==="/m" && (categoria = 'movie')
+      pathnameInicial ==="/t" && (categoria = 'tv')
     
-      pathname ==="/movie/popular" && (categoria = 'movie')
-      pathname ==="/trending/movie/week" && (categoria = 'movie')
-      pathname ==="/movie/now_playing" && (categoria = 'movie')
-      pathname ==="/movie/upcoming" && (categoria = 'movie')
-      pathname ==="/movie/top_rated"&& (categoria = 'movie')
-
-      pathname ==="/tv/popular" && (categoria = 'tv')
-      pathname ==="/trending/tv/week" && (categoria = 'tv')
-      pathname ==="/tv/top_rated" && (categoria = 'tv')
-      pathname ==="/tv/on_the_air" && (categoria = 'tv')
     }
     
     return (
@@ -57,6 +54,7 @@ const GridContainerCategorias = ({ handleClick}) => {
         <TituloContainer /> 
         {averiguarCategoria()}
         <TituloResultados totalDeResultados = {totalDeResultados}/>
+        
         <Grid container spacing={3}>    
             {
                 resultados.map((resultado) => {

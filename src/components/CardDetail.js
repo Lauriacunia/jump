@@ -8,9 +8,9 @@ import {
     from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { findByLabelText } from "@testing-library/dom";
-
-
+import Container from '@material-ui/core/Container';
+import Imagen from "./Imagen";
+import TabsContainerSm from "./TabsContainerSm";
 
 const CardDetail = () => {
    
@@ -24,6 +24,7 @@ const CardDetail = () => {
     const BASE_URL = `https://api.themoviedb.org/3`
     const ruta = location.pathname
     const APIKEY = `c30046e601e1f588297bc67b7f52c812`;
+    let categoria;
 
     const useStyles = makeStyles({
         cardContainer: {
@@ -77,13 +78,23 @@ const CardDetail = () => {
             })
     }, []);
 
+    const averiguarCategoria = () => {
+        let pathnameInicial = `${ruta.slice(0, 2)}`
+        pathnameInicial ==="/m" && (categoria = 'movie')
+        pathnameInicial ==="/t" && (categoria = 'tv')
+      
+      }
+
     return(
-        <div>
-            <div className={classes.cardContainer}>
-               <div className={classes.overlay}></div>
-               <div className={classes.dataContainer}>
-                    <img src= {`https://image.tmdb.org/t/p/w370_and_h556_bestv2/${resultado.poster_path}`}></img>
-                    <div className={classes.textContainer}>
+        <Container className={classes.main} maxWidth={false}>
+             {averiguarCategoria()}
+            <Container className={classes.cardContainer} maxWidth={false}>
+               <Container className={classes.overlay} maxWidth={false}></Container>
+               <Container className={classes.dataContainer} maxWidth={false}>
+                    <Imagen ruta= {`https://image.tmdb.org/t/p/w370_and_h556_bestv2/${resultado.poster_path}`}
+                            alto={450}
+                            ancho={300}/>
+                    <Container className={classes.textContainer} maxWidth={false}>
                         <Typography className={classes.title} gutterBottom variant="h3" color="textSecondary">
                             { resultado.title || resultado.name }
                         </Typography>
@@ -102,12 +113,13 @@ const CardDetail = () => {
                         <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
                             { resultado.overview }
                         </Typography>
-                    </div>
-                </div>
-                
-            </div>
-        
-        </div>
+                    </Container>
+                </Container>
+            </Container>
+            <Container className={classes.tabsContainer} maxWidth={false}>
+                <TabsContainerSm categoria={categoria}/>
+            </Container>
+        </Container>
     )
 }
 
