@@ -122,13 +122,15 @@ const CardDetail = () => {
                     </Container>
                 </Container>
                 <Container className={classes.tabsContainer} maxWidth={false}>
-                    <TabsContainerSm categoria={categoria}/>
+                    <TabsContainerSm categoria={categoria}
+                                     ruta={ruta}/>
                 </Container>
                 <Switch>
-                    <Route exact path={`${ruta}/${resultado.id}/cast`} component={CastContainer} />
-                    <Route exact path={`${ruta}/${resultado.id}/similar`} component={SimilarContainer} />
-                    <Route exact path={`${ruta}/${resultado.id}/season`} component={TemporadasContainer} />
-                    <Route exact path={`${ruta}/${resultado.id}/trailer`} component={TrailersContainer} />
+                     {console.log(`estoy en card detail:`,ruta, resultado.id)}
+                    <Route exact path={`${ruta}`} component={CastContainer} />
+                    <Route exact path={`${ruta}/similar`} component={SimilarContainer} />
+                    <Route exact path={`${ruta}/season`} component={TemporadasContainer} />
+                    <Route exact path={`${ruta}/videos`} component={TrailersContainer} />
                 </Switch>
 
             </Container>

@@ -60,11 +60,10 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const TabsContainerSm = ({categoria}) => {
+const TabsContainerSm = ({categoria, ruta}) => {
   const classes = useStyles();
   const history = useHistory();
   let location = useLocation();
-  const ruta = location.pathname
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -74,6 +73,10 @@ const TabsContainerSm = ({categoria}) => {
   return (
     <div>
       <AppBar position="static" className={classes.root}>
+            {console.log(`estoy en tabs y la ruta es: ${ruta}`)}
+            
+            { categoria === 'movie' && (
+            <>
             <Tabs className={classes.tabs}
             value={value}
             onChange={handleChange}
@@ -81,8 +84,6 @@ const TabsContainerSm = ({categoria}) => {
             indicatorColor="primary"
             textColor="primary"
             >
-            { categoria === 'movie' && (
-            <>
                 <Tab className={classes.tabs}
                     onClick={() => { history.push(`${ruta}`) }}
                     label="reparto"
@@ -92,33 +93,41 @@ const TabsContainerSm = ({categoria}) => {
                     label="similares"
                     {...a11yProps(1)} />
                 <Tab className={classes.tabs}
-                    onClick={() => { history.push(`${ruta}/trailer`) }}
+                    onClick={() => { history.push(`${ruta}/videos`) }}
                     label="trailers "
                     {...a11yProps(2)} />
+             </Tabs>
             </>
           )}
 
             { categoria === 'tv' && (
             <>
+                 <Tabs className={classes.tabs}
+            value={value}
+            onChange={handleChange}
+            aria-label="simple tabs example"
+            indicatorColor="primary"
+            textColor="primary"
+            >
+                <Tab className={classes.tabs}
+                    onClick={() => { history.push(`${ruta}`)}}
+                    label="reparto"
+                    {...a11yProps(1)} />
                 <Tab className={classes.tabs}
                     onClick={() => { history.push(`${ruta}/season`) }}
                     label="episodios"
                     {...a11yProps(0)} />
                 <Tab className={classes.tabs}
-                    onClick={() => { history.push(`${ruta}`) }}
-                    label="reparto"
-                    {...a11yProps(1)} />
-                <Tab className={classes.tabs}
                     onClick={() => { history.push(`${ruta}/similar`) }}
                     label="similares "
                     {...a11yProps(2)} />
                 <Tab className={classes.tabs}
-                    onClick={() => { history.push(`${ruta}/trailer`) }}
+                    onClick={() => { history.push(`${ruta}/videos`) }}
                     label="trailers"
                     {...a11yProps(2)} />
+                    </Tabs>
             </>
           )}
-        </Tabs>
       </AppBar>
     </div>
   );
