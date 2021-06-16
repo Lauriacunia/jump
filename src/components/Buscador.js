@@ -1,10 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useHistory, useParams, useLocation, Link } from 'react-router-dom'
 import Search from "./Search";
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import GridContainer from "./GridContainer";
+import GridContainerBuscador from "./GridContainerBuscador";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,33 +29,17 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
   
-const Buscador = ({history, location, match}) => {
+const Buscador = () => {
     const classes = useStyles();
-
-    console.log(history, location)
-    console.log(location.pathname)
-
-    const [resultados, setResultados] = useState([]);
     const [valorDelInput, setValorDelInput] = useState('');
-    const [busqueda, setBusqueda] = useState('');
-    const APIKEY = `c30046e601e1f588297bc67b7f52c812`;
-
+    const [paginaActual, setPaginaActual] = useState(1); 
+  
     const handleChange = e => {
       console.log("Cambio el input")
       setValorDelInput(e.target.value);
-      console.log(valorDelInput)
+      setPaginaActual(1)
     };
     
-    const handleSubmit = e => {
-      console.log("Enviaste el formulario")
-      e.preventDefault();
-      setBusqueda(valorDelInput);
-    };
-    const handleClick = (e) => {
-        console.log("hola")
-        console.log(e.target.id)
-    }
-  
   
     useEffect(() => {
       window.scrollTo(0, 0)
@@ -71,16 +54,14 @@ const Buscador = ({history, location, match}) => {
                     ¿Qué quieres ver hoy?
                </Typography>
                <Search valorDelInput={valorDelInput}
-                   handleChange={handleChange}
-                   handleSubmit={handleSubmit} />
+                       handleChange={handleChange}
+                        />
            </Container>
-           
-            <GridContainer 
+           <GridContainerBuscador 
                            valorDelInput={valorDelInput}
-                           busqueda={busqueda}
-                           handleClick={handleClick}
-                           categoria={"movie"}
-                           subcategoria={"popular"} />      
+                           paginaActual = {paginaActual}
+                           setPaginaActual = {setPaginaActual}
+                           />      
        </Container>
            
     )

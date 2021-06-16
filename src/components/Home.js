@@ -79,7 +79,7 @@ const Home = () => {
               history.push(`/movie/top_rated`);
              }}
         >
-          <TituloSlider title={"Peliculas Mejor Rankeadas"} />
+          <TituloSlider title={"Peliculas con Mejores Críticas"} />
         </div>
         <SliderMultiple categoria={`movie`} subcategoria={`topRated`} />
       </Container>

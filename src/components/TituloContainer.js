@@ -38,7 +38,7 @@ const TituloContainer = () => {
     {pathname === `/movie/upcoming` && asignarTitulo(`Películas a estrenarse`)}
     {pathname === `/movie/top_rated` && asignarTitulo(`Películas con mejores críticas`)}
 
-    {pathname === `/tv/popular` && asignarTitulo(`Series ppulares`)}
+    {pathname === `/tv/popular` && asignarTitulo(`Series populares`)}
     {pathname === `/trending/tv/week` && asignarTitulo(`Series que son tendencia`)}
     {pathname === `/tv/top_rated` && asignarTitulo(`Series con mejores criticas`)}
     {pathname === `/tv/on_the_air` && asignarTitulo(`Series en el aire`)} 
