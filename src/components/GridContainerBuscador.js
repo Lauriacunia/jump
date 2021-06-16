@@ -40,7 +40,7 @@ const GridContainerBuscador = ({ valorDelInput, paginaActual, setPaginaActual })
         <Container>
             {!valorDelInput && <Animation height={'800px'} width={'800px'} myAnimation={searching} />} 
             {valorDelInput &&  <TituloResultados totalDeResultados = {totalDeResultados}/>} 
-            <Grid container spacing={3}>    
+            {valorDelInput && <Grid container spacing={3}>    
                 {
                     resultados.map((resultado) => {
                         return (
@@ -56,7 +56,7 @@ const GridContainerBuscador = ({ valorDelInput, paginaActual, setPaginaActual })
                         )
                     })
                 }      
-            </Grid>
+            </Grid> }
             {valorDelInput &&  <Paginado totalDePaginas= {totalDePaginas}
                                          paginaActual= {paginaActual}
                                          onChangePaginado = {onChangePaginado}/>} 

@@ -1,4 +1,5 @@
 
+
 import React, { useRef, useState, useEffect } from "react";
 import {
   BrowserRouter, 
@@ -81,9 +82,7 @@ const SliderMultiple = ({categoria, subcategoria}) => {
           {
             resultados.map((resultado) => {
                 return (
-                  <div key={resultado.id} 
-                        onClick = {()=> { console.log("hiciste click en la card ") 
-                                          history.push("/tv/top_rated")}}>      
+                  <div key={resultado.id}>      
                       <SwiperSlide>
                           <CardSimple
                               resultado={resultado}
