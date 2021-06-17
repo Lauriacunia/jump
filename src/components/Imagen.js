@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-
+import imageNotFound from '../assets/noimg.png';
 
 
 const Imagen = ({ruta, ancho, alto}) => {
@@ -18,6 +18,7 @@ const Imagen = ({ruta, ancho, alto}) => {
         }
     });
 
+    !ruta && (ruta= imageNotFound)
     const classes = useStyles();
 
         return (

@@ -12,6 +12,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import imageNotFound from '../assets/noimg.png';
 
 const useStyles = makeStyles({
   root: {
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
 const CardSimple = ({ resultado, categoria }) => {
   const classes = useStyles();
   const history = useHistory();
+  let imagen;
   console.log(resultado.id)
   console.log(categoria)
 
@@ -42,6 +44,10 @@ const CardSimple = ({ resultado, categoria }) => {
   {categoria === `trendingMovie` && cambiarRuta(`movie`)}
   {categoria === `trendingSerie` && cambiarRuta(`tv`)}
 
+  resultado.poster_path
+  ? imagen=`https://image.tmdb.org/t/p/w370_and_h556_bestv2/${resultado.poster_path}`
+  : imagen= imageNotFound
+
   return (
     <Card className={classes.root} 
           onClick = {()=> { console.log("hiciste click en la card ") 
@@ -50,7 +56,7 @@ const CardSimple = ({ resultado, categoria }) => {
       <CardActionArea>
         <CardMedia
             className={classes.media}
-            image={`https://image.tmdb.org/t/p/w370_and_h556_bestv2/${resultado.poster_path}`}
+            image={imagen}
         /> 
         <CardContent>
             <Typography gutterBottom variant="body1" color="textSecondary">

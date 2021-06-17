@@ -12,6 +12,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import imageNotFound from '../assets/noimg.png';
 
 const useStyles = makeStyles({
   root: {
@@ -26,8 +27,13 @@ const useStyles = makeStyles({
 
 const CardCast = ({ nombre, foto }) => {
   const classes = useStyles();
+  let imagen;
   console.log(foto)
- 
+  
+  foto
+  ? imagen=`https://image.tmdb.org/t/p/w370_and_h556_bestv2/${foto}`
+  : imagen= imageNotFound
+
   return (
     <Card className={classes.root} 
           >   
@@ -35,7 +41,7 @@ const CardCast = ({ nombre, foto }) => {
       <CardActionArea>
         <CardMedia
             className={classes.media}
-            image={`https://image.tmdb.org/t/p/w370_and_h556_bestv2/${foto}`}
+            image={imagen}
         /> 
         <CardContent>
             <Typography gutterBottom variant="body1" color="textSecondary">
