@@ -4,11 +4,12 @@ import { useLocation } from 'react-router-dom'
 import { Container } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import CardCast from "./CardCast";
+import Cry from './Cry';
 
 const useStyles = makeStyles(theme => ({  
     root: {
         color: "white",
-      
+        marginTop: 50,      
     },
 }));
 
@@ -33,11 +34,10 @@ const CastContainer = () => {
             })
     }, []);
     return (
-        <div className={classes.root}>
-            <p>estoy en cast</p>
-           <h1>{resultados && console.log(resultados)}</h1>
-           <Container>
-            
+    
+        <Container className={classes.root}>
+           {console.log(resultados)}
+           {resultados.length === 0 && <Cry/>}
             {resultados && 
                 <Grid container spacing={3}>    
                     {
@@ -56,8 +56,8 @@ const CastContainer = () => {
                         })
                     }      
                 </Grid> }
-            </Container>
-        </div>
+        </Container>
+        
     )
 }
 
