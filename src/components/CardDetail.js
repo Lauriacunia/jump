@@ -15,6 +15,15 @@ import CastContainer from './CastContainer';
 import SimilarContainer from './SimilarContainer';
 import TemporadasContainer from './TemporadasContainer';
 import TrailersContainer from './TrailersContainer';
+import cyan from '@material-ui/core/colors/cyan';
+
+
+let anio = null;
+const parseAnio = (date) =>{
+    const fechaCompleta = new Date(date)
+    anio = fechaCompleta.getFullYear()
+    console.log(anio)
+}
 
 const CardDetail = () => {
    
@@ -64,7 +73,11 @@ const CardDetail = () => {
         },
         title: {
             color: "white",
-        }
+        },
+        production: {
+            color: cyan[500],
+            marginTop: 20,
+        },
      });
      const classes = useStyles();
 
@@ -88,11 +101,12 @@ const CardDetail = () => {
         pathnameInicial ==="/t" && (categoria = 'tv')
       
       }
-
+   
     return(
         <BrowserRouter>
             <Container className={classes.main} maxWidth={false}>
                 {averiguarCategoria()}
+                {resultado && parseAnio(resultado.first_air_date)}
                 <Container className={classes.cardContainer} maxWidth={false}>
                 <Container className={classes.overlay} maxWidth={false}></Container>
                 <Container className={classes.dataContainer} maxWidth={false}>
@@ -103,20 +117,36 @@ const CardDetail = () => {
                             <Typography className={classes.title} gutterBottom variant="h3" color="textSecondary">
                                 { resultado.title || resultado.name }
                             </Typography>
-                            <Typography className={classes.title} gutterBottom variant="subtitle" color="textSecondary">
-                                { resultado.original_title|| resultado.name }
-                            </Typography>
                             <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
-                                {resultado.first_air_date && `Año: ${resultado.first_air_date}`}
+                                {resultado.first_air_date && `Año: ${anio}`}
                             </Typography>
                             <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
                                 { resultado.runtime && `Duración: ${resultado.runtime} min` }
                             </Typography>
                             <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
-                            { resultado.genres && `Genero: ${resultado.genres[1]}` }     
+                            { resultado.genres && (
+                                <div>
+                                  Géneros: {resultado.genres.map(genre => `• ${genre.name} `) }  
+                                </div>
+                                
+                                )}      
                             </Typography>
-                            <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
+                            <Typography className={classes.title} 
+                                        gutterBottom variant="body1" 
+                                        align ="justify"
+                                        color="textSecondary">
                                 { resultado.overview }
+                            </Typography>
+                            <Typography className={classes.production} 
+                                        gutterBottom variant="body2"
+                                        align ="justify"
+                                        color="textSecondary">
+                               { resultado.production_companies && (
+                                    <div>
+                                      Producción: {resultado.production_companies.map(production => `• ${production.name} `) }  
+                                    </div>
+                                
+                                )}      
                             </Typography>
                         </Container>
                     </Container>

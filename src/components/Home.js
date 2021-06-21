@@ -21,13 +21,6 @@ const useStyles = makeStyles({
     padding: 0,
     width: "100%",
   },
-  titleContainer: {
-    display: "flex",
-    alignItems: "center",
-    marginTop: 10,
-    marginBottom: 5,
-    marginLeft: 10,
-  },
   parallaxContainer: {
     display: "flex",
     padding: 0,
@@ -36,6 +29,14 @@ const useStyles = makeStyles({
     backgroundColor: "red",
     marginBottom: "50px",
   },
+  titleContainer: {
+    display: "flex",
+    alignItems: "center",
+    marginTop: 10,
+    marginBottom: 5,
+    marginLeft: 10,
+  },
+
   flecha: {
     width: 30,
     height: 25,
@@ -53,13 +54,12 @@ const Home = () => {
   }, [])
 
   return (
-    <Container className={classes.root} maxWidth={false}>
-      <Container className={classes.parallaxContainer}>
+    <Container className={classes.root} maxWidth={false}>     
+       <Container className={classes.parallaxContainer}>
         <SliderParallax
           ruta={`movie/popular?language=en-US&page=1&api_key=${APIKEY}`}
         />
       </Container>
-
       <Container className={classes.sliderContainer} maxWidth={false}>
         <div className={classes.titleContainer}
              onClick={() => {
