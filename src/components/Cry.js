@@ -30,6 +30,7 @@ const useStyles = makeStyles({
 
 });
 
+// usa nombres descriptivo en sentido funcional. la animacion es llanto, pero cual es la **funcion** de este componente?
 const Cry = () => {
     const classes = useStyles();
     const history = useHistory();

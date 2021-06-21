@@ -6,6 +6,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 
 ReactDOM.render(
   <React.StrictMode>
+  {/* Preferimos no modificar el index: App.js tendria que tener los estilos */}
     <ThemeProvider theme = {theme}>
       <App />
     </ThemeProvider>

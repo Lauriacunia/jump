@@ -53,6 +53,8 @@ const Buscador = () => {
                            variant="h1" gutterBottom>
                     ¿Qué quieres ver hoy?
                </Typography>
+               {/* aca no pasas handleSubmit, pero el componente lo espera. si envio el form
+               apretando enter, la busqueda se rompe */}
                <Search valorDelInput={valorDelInput}
                        handleChange={handleChange}
                         />

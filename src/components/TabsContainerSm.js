@@ -8,7 +8,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-
+// por que este componente esta hecho con una funcion tradicional? si usas arrow functions debe ser consistente
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 

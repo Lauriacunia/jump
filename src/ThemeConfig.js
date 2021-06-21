@@ -2,7 +2,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import pink from '@material-ui/core/colors/pink';
 import cyan from '@material-ui/core/colors/cyan';
 
-
+// Buen uso del theme de material! 
 const theme = createMuiTheme({
   
         palette: {

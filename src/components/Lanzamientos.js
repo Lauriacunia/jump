@@ -37,10 +37,13 @@ const Lanzamientos = () => {
               animation={llama}              
               height={450}
               width={450}/>
+
+              {/* esto deberia estar componentizado */}
         <Container className= {classes.sliderContainer}>
             <div onClick = {()=> { history.push("/movie/upcoming")}}> 
               <TituloSlider title={"Películas a estrenarse"} />
             </div> 
+            {/* usa comillas simples o dobles si no vas a pasar variables, y no uses llaves si el prop es solo string */}
             <SliderMultiple categoria = {`movie`}
                             subcategoria= {`upcoming`}/>
         </Container>

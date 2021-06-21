@@ -39,6 +39,8 @@ const Peliculas = () => {
               animation={cat}
               height={330}
               width={330}/>
+
+              {/* este componente quedaria mejor y mas claro si estuviera componentizado! */}
         <Container className= {classes.sliderContainer}>
             <div onClick = {()=> { history.push("/trending/movie/week")}}>
               <TituloSlider title={"Películas que son tendencia"} /> 

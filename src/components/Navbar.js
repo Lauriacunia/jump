@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
+// NavBar no recibe props, no deberiamos tener esto declarado aqui
 const Navbar = ({handleSubmit, handleChange, valorDelInput}) => {
     const classes = useStyles();
     const history = useHistory();

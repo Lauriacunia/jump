@@ -80,6 +80,9 @@ const CardDetail = () => {
                 setResultado(data)
                 
             })
+            // como este use effect se ejecuta una sola vez, cuando el componente se monta, no podemos ver 
+            // los resultados si hacemos click en una de las peliculas de "similares"
+            // que variable influye alli? deberiamos agregarla al array de dependencias 
     }, []);
 
     const averiguarCategoria = () => {
@@ -113,6 +116,7 @@ const CardDetail = () => {
                                 { resultado.runtime && `Duración: ${resultado.runtime} min` }
                             </Typography>
                             <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
+                            {/* esto es un objeto!! */}
                             { resultado.genres && `Genero: ${resultado.genres[1]}` }     
                             </Typography>
                             <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">

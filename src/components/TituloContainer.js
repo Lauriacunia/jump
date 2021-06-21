@@ -31,7 +31,7 @@ const TituloContainer = () => {
             titulo = tituloSegunRuta
         }
 
-
+// mira la funcion que te deje en SliderMultiple
     {pathname === `/trending/movie/week` && asignarTitulo(`Películas que son tendencia`)}
     {pathname === `/movie/popular` && asignarTitulo(`Películas populares`)}
     {pathname === `/movie/now_playing` && asignarTitulo(`Películas ahora en cine`)}

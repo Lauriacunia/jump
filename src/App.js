@@ -42,12 +42,17 @@ const App = () => {
 
         <Switch>
           <Route exact path="/" component={Home} />
+          {/* Los siguientes 4 componentes son muuuuy parecidos. Yo pensaria hacer una View para cada uno, 
+          pero que todos llamen al mismo componente, ya que estan muy repetitivos.  */}
           <Route exact path="/new" component={Lanzamientos} />
           <Route exact path="/popular" component={Populares} />
           <Route exact path="/movie" component={Peliculas} />
           <Route exact path="/tv" component={Series} />
           <Route exact path="/search" component={Buscador} />
 
+{/* Las views no deben ser componentes reutilizables. 
+Si GridContainerCategoria sirve para muchos elementos, deberia usar variables en las rutas. 
+Yo privilegiaria una View para cada Route que llame al mismo componente, GridContainerCategoria, pasandole props */}
           <Route exact path="/movie/popular" component={GridContainerCategoria} />
           <Route exact path="/trending/movie/week" component={GridContainerCategoria} />
           <Route exact path="/movie/now_playing" component={GridContainerCategoria} />

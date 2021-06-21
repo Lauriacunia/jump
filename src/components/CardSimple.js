@@ -60,6 +60,7 @@ const CardSimple = ({ resultado, categoria }) => {
         /> 
         <CardContent>
             <Typography gutterBottom variant="body1" color="textSecondary">
+            {/* los ternarios anidados son muy dificiles de leer: aca deberia haber un llamado a una funcion que use if */}
                 { resultado.title
                   ? resultado.title.length < 28 
                         ? resultado.title 

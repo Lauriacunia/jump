@@ -50,6 +50,7 @@ const Footer = () => {
             <div className={classes.iconsContainer}>
                 <a href="https://github.com/Lauriacunia" target="_blank" rel="noreferrer">
                     <IconButton color="secondary"
+                    // ojo con aria-labels confusos, es mejor que no esten a que den la impresion equivocada
                         aria-label="add an alarm">
                         <GitHubIcon className={classes.icon1} />
                     </IconButton>

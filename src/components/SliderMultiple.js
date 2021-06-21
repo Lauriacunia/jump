@@ -40,7 +40,23 @@ const SliderMultiple = ({categoria, subcategoria}) => {
   const concatenarRuta = (pathASumar) => {
     ruta = ruta + pathASumar
   }
-   
+// esto deberia ser una funcion, no llamar 8 veces a concatenarRuta
+// podriamos usar un objeto para que sea mas eficiente: https://ultimatecourses.com/blog/deprecating-the-switch-statement-for-object-literals
+// const setCategoria = (categoria) => {
+//   const categoriaMap = {
+//     movie: "movie", 
+//     tv: "tv", 
+//     trendingMovie: "/trending/movie/week", 
+//     trendingSerie: "/trending/tv/week", 
+//     topRated: "/top_rated", 
+//     popular: "/popular", 
+//     nowPlaying: "/now_playing", 
+//     upcoming: "/upcoming", 
+//     onTheAir: "/on_the_air", 
+//   }
+
+//   return concatenarRuta(categoriaMap[categoria])
+// }
 
   {categoria === `movie` && concatenarRuta("/movie")}
   {categoria === `tv` &&  concatenarRuta("/tv")}

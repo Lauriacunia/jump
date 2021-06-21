@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Paginado = ({totalDePaginas, paginaActual, onChangePaginado}) => {
   const classes = useStyles();
+  // usa variables de estado si van a afectar al render!
   let nextBtn = false; 
   let prevBtn = false;
   let firstBtn = true;

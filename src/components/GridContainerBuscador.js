@@ -40,8 +40,10 @@ const GridContainerBuscador = ({ valorDelInput, paginaActual, setPaginaActual })
         <Container>
             {!valorDelInput && <Animation height={'800px'} width={'800px'} myAnimation={searching} />} 
             {valorDelInput &&  <TituloResultados totalDeResultados = {totalDeResultados}/>} 
+                       {/* preferimos hacer return implicitos en map dentro del jsx */}
             {valorDelInput && <Grid container spacing={3}>    
                 {
+
                     resultados.map((resultado) => {
                         return (
                             <Grid item xs={6} sm={3} 
