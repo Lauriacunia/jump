@@ -15,6 +15,7 @@ import CastContainer from './CastContainer';
 import SimilarContainer from './SimilarContainer';
 import TemporadasContainer from './TemporadasContainer';
 import TrailersContainer from './TrailersContainer';
+import cyan from '@material-ui/core/colors/cyan';
 
 
 let anio = null;
@@ -72,7 +73,11 @@ const CardDetail = () => {
         },
         title: {
             color: "white",
-        }
+        },
+        production: {
+            color: cyan[500],
+            marginTop: 20,
+        },
      });
      const classes = useStyles();
 
@@ -126,8 +131,22 @@ const CardDetail = () => {
                                 
                                 )}      
                             </Typography>
-                            <Typography className={classes.title} gutterBottom variant="body1" color="textSecondary">
+                            <Typography className={classes.title} 
+                                        gutterBottom variant="body1" 
+                                        align ="justify"
+                                        color="textSecondary">
                                 { resultado.overview }
+                            </Typography>
+                            <Typography className={classes.production} 
+                                        gutterBottom variant="body2"
+                                        align ="justify"
+                                        color="textSecondary">
+                               { resultado.production_companies && (
+                                    <div>
+                                      Producción: {resultado.production_companies.map(production => `• ${production.name} `) }  
+                                    </div>
+                                
+                                )}      
                             </Typography>
                         </Container>
                     </Container>
