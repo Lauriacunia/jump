@@ -6,7 +6,7 @@
 - [x] Website
 # Deploy
 
-[Netlify](https://jump-streaming.netlify.app)
+[Te invito a conocer el sitio ](https://jump-streaming.netlify.app)
 
 
 ## Construído con…
