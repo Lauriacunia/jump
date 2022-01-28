@@ -6,7 +6,7 @@
 </p>
 
 ## Funcionalidad
-- [x] Website
+- [x] Website. Single page application
 # Deploy
 
 [Te invito a conocer el sitio ](https://jump-streaming.netlify.app)
